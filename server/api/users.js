@@ -16,6 +16,8 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/login', (req, res, next) => res.send('LOGIN'));
+router.get('/login', (req, res, next) => res.send('LOGIN'))
 router.get('/register', (req, res, next) => res.send('REGISTER'))
-router.post('/register', (req, res, next) => res.send('REGISTER'))
+router.post('/register', (req, res, next) => {
+  // const {name, email, password} = req.body;
+})
