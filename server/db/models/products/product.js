@@ -31,7 +31,7 @@ const Product = db.define('product', {
     }
   },
   quality: {
-    type: Sequelize.STRING, // confirm the type
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true
@@ -73,7 +73,7 @@ const Product = db.define('product', {
       notEmpty: true,
       min: 0
     }
-  },
+  }
   // sourceLocation: {
   //   type: Sequelize.STRING,
   //   allowNull: false,
