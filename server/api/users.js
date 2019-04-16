@@ -15,3 +15,7 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/login', (req, res, next) => res.send('LOGIN'));
+router.get('/register', (req, res, next) => res.send('REGISTER'))
+router.post('/register', (req, res, next) => res.send('REGISTER'))
