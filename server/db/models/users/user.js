@@ -70,8 +70,8 @@ const User = db.define('user', {
   zipCode: {
     type: Sequelize.INTEGER,
   },
-  admin: {
-      type: Sequelize.STRING,
+  isAdmin: {
+      type: Sequelize.BOOLEAN
     }
 })
 
