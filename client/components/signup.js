@@ -96,9 +96,29 @@ const mapDispatch = dispatch => {
     handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
+      const firstName = evt.target.firstName.value
+      const lastName = evt.target.lastName.value
+      const address = evt.target.address.value
+      const city = evt.target.city.value
+      const state = evt.target.state.value
+      const country = evt.target.country.value
+      const zipcode = evt.target.zipcode.value
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      dispatch(
+        auth(
+          email,
+          password,
+          formName,
+          firstName,
+          lastName,
+          address,
+          city,
+          state,
+          country,
+          zipcode
+        )
+      )
     }
   }
 }
