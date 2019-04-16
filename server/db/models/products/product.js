@@ -31,7 +31,7 @@ const Product = db.define('product', {
     }
   },
   quality: {
-    type: Sequelize.STRING,// confirm the type
+    type: Sequelize.STRING, // confirm the type
     allowNull: false,
     validate: {
       notEmpty: true
@@ -52,7 +52,7 @@ const Product = db.define('product', {
     }
   },
   imgUrl: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
     //Need a default value
     // allowNull: false,
     // validate: {
@@ -74,13 +74,13 @@ const Product = db.define('product', {
       min: 0
     }
   },
-  sourceLocation: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  }
+  // sourceLocation: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  //   validate: {
+  //     notEmpty: true
+  //   }
+  // }
 })
 
 module.exports = Product
