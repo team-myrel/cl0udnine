@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import {auth} from '../store'
+import {auth} from '../reducers/UserReducer'
 
 /**
  * COMPONENT
@@ -83,13 +83,6 @@ const signup = props => {
  *   function, and share the same Component. This is a good example of how we
  *   can stay DRY with interfaces that are very similar to each other!
  */
-const mapSignup = state => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.Users
-  }
-}
 
 const mapDispatch = dispatch => {
   return {
@@ -123,7 +116,7 @@ const mapDispatch = dispatch => {
   }
 }
 
-export const Signup = connect(mapSignup, mapDispatch)(signup)
+export const Signup = connect(null, mapDispatch)(signup)
 
 /**
  * PROP TYPES
