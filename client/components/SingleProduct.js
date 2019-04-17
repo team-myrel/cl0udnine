@@ -1,17 +1,13 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
-export class SingleProduct extends Component {
+export default class SingleProduct extends Component {
   constructor(props) {
     super(props)
   }
 
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
   render() {
-    return (
-      <div> Hello from singleComponent</div>
-    )
+    return <div> Hello from singleComponent</div>
   }
 }
