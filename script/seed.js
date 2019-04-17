@@ -1,20 +1,146 @@
-// 'use strict'
+'use strict'
 
-// const db = require('../server/db')
-// const {User} = require('../server/db/models')
+const db = require('../server/db')
+const Product = require('../server/db/models/products/product.js');
 
-// async function seed() {
-//   await db.sync({force: true})
-//   console.log('db synced!')
+async function seed() {
+  await db.sync({ force: true })
+  console.log('db synced!')
 
-//   const users = await Promise.all([
-//     User.create({email: 'cody@email.com', password: '123'}),
-//     User.create({email: 'murphy@email.com', password: '123'})
-//   ])
+  const products = await Promise.all([
+    //     Product.create({email: 'cody@email.com', password: '123'}),
+    //     Product.create({email: 'murphy@email.com', password: '123'})
 
-//   console.log(`seeded ${users.length} users`)
-//   console.log(`seeded successfully`)
-// }
+
+    Product.create(
+      {
+        name: 'Cloud One -- Everest Air',
+        description: 'Try this woozy concotion of thin air gathered from the summit of Mount Everest at 8850 metres, the highest peak on Planet Earth. There is approximately 33% of the oxygen that is available at sea level. That\'s like climbing up stairs and only getting 1 out of every 3 breathes-- makes for an mind-altering experience! ',
+        scent: 'A base note of the smell around the time when rain falls on dry, stony ground intermingled with top notes of the musky scent of yak and fresh snowfall.',
+        elevation: '8850 meters',
+        quality: 'Pure',
+        price: '$6,478.00',
+        benefits: 'Intoxication',
+        molecularComposition: '78.29% N₂ + 15.33% O₂ + 5.92% Ar + 1.04% CO + 2.02 He + 1.01 % CH₄ + 0.01% H₂O',
+        quantity: 1,
+        imageUrl: 1,
+      }),
+    Product.create(
+      {
+        name: 'Cloud Two -- Dead Sea',
+        description: 'This parcel of air hails from the lowest exposed land on Earth, located at the Dead Sea shore. The low elevation of -413 meters creates a highly oxygenated parcel of air.',
+        scent: 'A strikingly salty scent featuring base notes of halite with top and middle notes of dried balsam and fresh sycamore fig.',
+        elevation: '-413 meters',
+        quality: 'Minimal contamination',
+        price: '$1,390.00',
+        benefits: 'Rejuvination',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      }),
+    Product.create(
+      {
+        name: 'Cloud Three -- New York City',
+        description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+        scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+        elevation: '-413 meters',
+        quality: 'Heavily polluted',
+        price: '$718.00',
+        benefits: 'Novelty',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      }),
+    Product.create(
+      {
+        name: 'Cloud Four -- The Amazon Rainforest',
+        description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+        scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+        elevation: '-413 meters',
+        quality: 'Heavily polluted',
+        price: '$718.00',
+        benefits: 'Novelty',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      }),
+    Product.create(
+      {
+        name: 'Cloud Five -- Antarctica',
+        description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+        scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+        elevation: '-413 meters',
+        quality: 'Heavily polluted',
+        price: '$718.00',
+        benefits: 'Novelty',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      }),
+    Product.create(
+      {
+        name: 'Cloud Six -- Death Valley',
+        description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+        scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+        elevation: '-413 meters',
+        quality: 'Heavily polluted',
+        price: '$718.00',
+        benefits: 'Novelty',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      }),
+    Product.create(
+      {
+        name: 'Cloud Seven -- Antarctica',
+        description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+        scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+        elevation: '-413 meters',
+        quality: 'Heavily polluted',
+        price: '$718.00',
+        benefits: 'Novelty',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      }),
+    Product.create(
+      {
+        name: 'Cloud Eight -- Antarctica',
+        description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+        scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+        elevation: '-413 meters',
+        quality: 'Heavily polluted',
+        price: '$718.00',
+        benefits: 'Novelty',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      }),
+    Product.create(
+      {
+        name: 'Cloud Nine -- Your Choice!',
+        description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+        scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+        elevation: '-413 meters',
+        quality: 'Heavily polluted',
+        price: '$718.00',
+        benefits: 'Novelty',
+        molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+        quantity: 1,
+        imageUrl: 'TBA',
+      })
+
+
+
+
+
+
+
+  ])
+
+  console.log(`seeded ${products.length} Products`)
+  console.log(`seeded successfully`)
+}
 
 // // We've separated the `seed` function from the `runSeed` function.
 // // This way we can isolate the error handling and exit trapping.
@@ -44,114 +170,126 @@
 // module.exports = seed
 
 
-// const { db } = require('./server/db')
+
+// const {db} = require('../server/db.js')
 // const { green, red } = require('chalk')
 
 
+
 // const Product = require('./server/db/models/Product');
-// const User = require('./server/db/models/User');
 
 
-// name: 'Cloud One -- Everest Air',
-// description: 'Try this woozy concotion of thin air gathered from the summit of Mount Everest at 8850 metres, the highest peak on Planet Earth. There is approximately 33% of the oxygen that is available at sea level. That\'s like climbing up stairs and only getting 1 out of every 3 breathes-- makes for an mind-altering experience! ',
-// scent: 'A base note of the smell around the time when rain falls on dry, stony ground intermingled with top notes of the musky scent of yak and fresh snowfall.',
-// elevation: '8850 meters',
-// quality: 'Pure',
-// price: '$6,478.00',
-// benefits: 'Intoxication',
-// molecularComposition: '78.29% N₂ + 15.33% O₂ + 5.92% Ar + 1.04% CO + 2.02 He + 1.01 % CH₄ + 0.01% H₂O',
-// quantity: ,
-// imageUrl: ,
 
-
-// name: 'Cloud Two -- Dead Sea',
+// const product = [
+// {
+//   name: 'Cloud One -- Everest Air',
+//   description: 'Try this woozy concotion of thin air gathered from the summit of Mount Everest at 8850 metres, the highest peak on Planet Earth. There is approximately 33% of the oxygen that is available at sea level. That\'s like climbing up stairs and only getting 1 out of every 3 breathes-- makes for an mind-altering experience! ',
+//   scent: 'A base note of the smell around the time when rain falls on dry, stony ground intermingled with top notes of the musky scent of yak and fresh snowfall.',
+//   elevation: '8850 meters',
+//   quality: 'Pure',
+//   price: '$6,478.00',
+//   benefits: 'Intoxication',
+//   molecularComposition: '78.29% N₂ + 15.33% O₂ + 5.92% Ar + 1.04% CO + 2.02 He + 1.01 % CH₄ + 0.01% H₂O',
+//   quantity: 1,
+//   imageUrl: 1,
+// },
+// {
+//   name: 'Cloud Two -- Dead Sea',
 //   description: 'This parcel of air hails from the lowest exposed land on Earth, located at the Dead Sea shore. The low elevation of -413 meters creates a highly oxygenated parcel of air.',
-// scent: 'A strikingly salty scent featuring base notes of halite with top and middle notes of dried balsam and fresh sycamore fig.',
-// elevation: '-413 meters',
-// quality: 'Minimal contamination',
-// price: '$1,390.00',
-// benefits: 'Rejuvination',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
-
-
-// name: 'Cloud Three -- New York City',
-// description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
-// scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
-// elevation: '-413 meters',
-// quality: 'Heavily polluted',
-// price: '$718.00',
-// benefits: 'Novelty',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
-
-// name: 'Cloud Four -- The Amazon Rainforest',
-// description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
-// scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
-// elevation: '-413 meters',
-// quality: 'Heavily polluted',
-// price: '$718.00',
-// benefits: 'Novelty',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
-
-// name: 'Cloud Five -- Antarctica',
-// description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
-// scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
-// elevation: '-413 meters',
-// quality: 'Heavily polluted',
-// price: '$718.00',
-// benefits: 'Novelty',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
-
-// name: 'Cloud Six -- Death Valley',
-// description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
-// scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
-// elevation: '-413 meters',
-// quality: 'Heavily polluted',
-// price: '$718.00',
-// benefits: 'Novelty',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
-
-// name: 'Cloud Seven -- Antarctica',
-// description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
-// scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
-// elevation: '-413 meters',
-// quality: 'Heavily polluted',
-// price: '$718.00',
-// benefits: 'Novelty',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
-
-// name: 'Cloud Eight -- Antarctica',
-// description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
-// scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
-// elevation: '-413 meters',
-// quality: 'Heavily polluted',
-// price: '$718.00',
-// benefits: 'Novelty',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
-
-// name: 'Cloud Nine -- Your Choice!',
-// description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
-// scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
-// elevation: '-413 meters',
-// quality: 'Heavily polluted',
-// price: '$718.00',
-// benefits: 'Novelty',
-// molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
-// quantity: ,
-// imageUrl: ,
+//   scent: 'A strikingly salty scent featuring base notes of halite with top and middle notes of dried balsam and fresh sycamore fig.',
+//   elevation: '-413 meters',
+//   quality: 'Minimal contamination',
+//   price: '$1,390.00',
+//   benefits: 'Rejuvination',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// },
+// {
+//   name: 'Cloud Three -- New York City',
+//   description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+//   scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+//   elevation: '-413 meters',
+//   quality: 'Heavily polluted',
+//   price: '$718.00',
+//   benefits: 'Novelty',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// },
+// {
+//   name: 'Cloud Four -- The Amazon Rainforest',
+//   description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+//   scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+//   elevation: '-413 meters',
+//   quality: 'Heavily polluted',
+//   price: '$718.00',
+//   benefits: 'Novelty',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// },
+// {
+//   name: 'Cloud Five -- Antarctica',
+//   description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+//   scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+//   elevation: '-413 meters',
+//   quality: 'Heavily polluted',
+//   price: '$718.00',
+//   benefits: 'Novelty',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// },
+// {
+//   name: 'Cloud Six -- Death Valley',
+//   description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+//   scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+//   elevation: '-413 meters',
+//   quality: 'Heavily polluted',
+//   price: '$718.00',
+//   benefits: 'Novelty',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// },
+// {
+//   name: 'Cloud Seven -- Antarctica',
+//   description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+//   scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+//   elevation: '-413 meters',
+//   quality: 'Heavily polluted',
+//   price: '$718.00',
+//   benefits: 'Novelty',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// },
+// {
+//   name: 'Cloud Eight -- Antarctica',
+//   description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+//   scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+//   elevation: '-413 meters',
+//   quality: 'Heavily polluted',
+//   price: '$718.00',
+//   benefits: 'Novelty',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// },
+// {
+//   name: 'Cloud Nine -- Your Choice!',
+//   description: 'An urban air mass hailing from from the streets of New York City, the largest urban area in the United States. Try this air to experience the air of New York without ever leaving the comfort of your home.',
+//   scent: 'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
+//   elevation: '-413 meters',
+//   quality: 'Heavily polluted',
+//   price: '$718.00',
+//   benefits: 'Novelty',
+//   molecularComposition: '60.12% N₂ + 43.31% O₂ + 1.44% Ar + 1.14% CO + 1.02 He + 1.01 % CH₄ + 0.06% H₂O',
+//   quantity: 1,
+//   imageUrl: 'TBA',
+// }
+// ]
 
 
 // const seedProduct = [
@@ -286,21 +424,22 @@
 //     console.log('Seeding the database...')
 //     await db.sync({ force: true })
 
-//     await Campus.create(seedCampuses[0], {
-//       include: [Student]
-//     })
+//     await Product.create(seedProducts[0])
+//     await Product.create(seedProducts[1])
+//     await Product.create(seedProducts[2])
+//     await Product.create(seedProducts[3])
 
-//     await Campus.create(seedCampuses[1], {
-//       include: [Student]
-//     })
+//     // await Product.create(seedProducts[1], {
+//     //   include: [Student]
+//     // })
 
-//     await Campus.create(seedCampuses[2], {
-//       include: [Student]
-//     })
+//     // await Product.create(seedProducts[2], {
+//     //   include: [Student]
+//     // })
 
-//     await Campus.create(seedCampuses[3], {
-//       include: [Student]
-//     })
+//     // await Product.create(seedProducts[3], {
+//     //   include: [Student]
+//     // })
 
 //     await db.close()
 //     console.log(green('Seeding success!'))
@@ -310,3 +449,39 @@
 //   }
 // }
 // seed()
+
+
+//   for (product of products) {
+//     var newProduct = new Product(product);
+//     newProduct.save();
+//   }
+
+//   // seeded!
+//   res.send('Database seeded!');
+// }
+
+
+
+async function runSeed() {
+  console.log('seeding...')
+  try {
+    await seed()
+  } catch (err) {
+    console.error(err)
+    process.exitCode = 1
+  } finally {
+    console.log('closing db connection')
+    await db.close()
+    console.log('db connection closed')
+  }
+}
+
+// Execute the `seed` function, IF we ran this module directly (`node seed`).
+// `Async` functions always return a promise, so we can use `catch` to handle
+// any errors that might occur inside of `seed`.
+if (module === require.main) {
+  runSeed()
+}
+
+// we export the seed function for testing purposes (see `./seed.spec.js`)
+module.exports = seed
