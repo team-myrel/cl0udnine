@@ -6,7 +6,7 @@ const Product = props => {
 
   return (
     <div>
-      <img src={product.imageUrl} />
+      <img src={product.imgUrl} />
       <h4>
         <Link to={`products/${product.id}`}>{product.name}</Link>
       </h4>

@@ -2,28 +2,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProduct} from '../reducers/ProductsReducer'
-export default class SingleProduct extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-
+export  class SingleProduct extends Component {
+  
   componentDidMount() {
     this.props.getProduct()
   }
   render() {
+    console.log('props', this.props)
     const product =  this.props.selectedProduct
     return (
-      <div> Hello from singleComponent
+      <div> 
         <img src={product.imgUrl} />
         <h3>Name: {product.name} </h3>
-        <h4> Description: {product.description} </h4>
-        <h4>Scent: {product.scent} </h4>
-        <h4>Elevation: {product.elevation} </h4>
+        <p> Description: {product.description} </p>
+        <p>Scent: {product.scent} </p>
+        <p>Elevation: {product.elevation} </p>
         <h5>Quality: {product.quality} </h5>
         <h3>Price Per Unit: {product.price} </h3>
-        <h5>Benefits: {product.benefits} </h5>
-        <h6>Molecular Composition: {product.molecularComposition} </h6>
+        <p>Benefits: {product.benefits} </p>
+        <p>Molecular Composition: {product.molecularComposition} </p>
       </div>
     )
   }
