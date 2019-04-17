@@ -23,6 +23,17 @@ class SignupForm extends Component {
   handleSubmit(e) {
     e.preventDefault()
     this.props.addingUser(this.state)
+    this.setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      address: '',
+      city: '',
+      state: '',
+      country: '',
+      zipcode: 0
+    })
   }
 
   handleChange(e) {
