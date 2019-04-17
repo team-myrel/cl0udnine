@@ -11,4 +11,4 @@ const middleware = composeWithDevTools(
 const store = createStore(rootReducer, middleware)
 
 export default store
-export * from './reducers/user'
+export * from './reducers/UserReducer'
