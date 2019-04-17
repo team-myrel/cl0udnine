@@ -8,7 +8,6 @@ const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 const ADD_USER = 'ADD_USER'
 
-
 /**
  * ACTION CREATORS
  */
@@ -19,14 +18,13 @@ const addUser = newUser => ({
   newUser
 })
 
-
 /**
  * INITIAL STATE
  */
 const defaultUser = {
-  user: {}
+  user: {},
+  users: []
 }
-
 
 /**
  * THUNK CREATORS
@@ -58,13 +56,13 @@ export const auth = (email, password, method) => async dispatch => {
 
 export const addingUser = newUser => async dispatch => {
   try {
-    const {data} = await axios.post('/auth/signup', `${newUser}`)
+    console.log('made it to the addingUser thunk')
+    const {data} = await axios.post('/auth/signup', newUser)
     dispatch(addUser(data))
   } catch (err) {
     console.error(err)
   }
 }
-
 
 export const logout = () => async dispatch => {
   try {
@@ -76,7 +74,6 @@ export const logout = () => async dispatch => {
   }
 }
 
-
 /**
  * REDUCER
  */
@@ -87,7 +84,7 @@ export default function(state = defaultUser, action) {
     case REMOVE_USER:
       return
     case ADD_USER:
-      return {...state, user: [action.user]}
+      return {...state, users: [...state, action.newUser]}
     default:
       return state
   }
