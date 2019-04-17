@@ -24,7 +24,7 @@ const Product = db.define('product', {
     }
   },
   elevation: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true
@@ -38,7 +38,7 @@ const Product = db.define('product', {
     }
   },
   price: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true
@@ -52,12 +52,12 @@ const Product = db.define('product', {
     }
   },
   imgUrl: {
-    type: Sequelize.STRING
-    //Need a default value
-    // allowNull: false,
-    // validate: {
-    //   notEmpty: true
-    // }
+    type: Sequelize.STRING,
+    defaultValue: 'https://www.watertechonline.com/wp-content/uploads/2015/11/iStock_000004135118_800x533.jpg',
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   molecularComposition: {
     type: Sequelize.STRING,
@@ -82,5 +82,6 @@ const Product = db.define('product', {
   //   }
   // }
 })
+
 
 module.exports = Product
