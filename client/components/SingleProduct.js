@@ -1,11 +1,12 @@
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProduct} from '../reducers/ProductsReducer'
-
-export class SingleProduct extends Component {
+export default class SingleProduct extends Component {
   constructor(props) {
     super(props)
   }
+
 
   componentDidMount() {
     this.props.getProduct()
