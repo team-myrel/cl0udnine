@@ -2,10 +2,13 @@ import axios from 'axios'
 
 //Initial State
 const initialState = {
+  allProducts: [],
   selectedProduct:{}
 }
 //action types
 const SELECTED_PRODUCT = 'SELECTED_PRODUCT'
+const GETTING_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
+const GOT_ALL_PRODUCTS = 'GOT_ALL_PRODUCTS'
 
 //action creators
 const gotSingleProduct = (product) => (
@@ -14,6 +17,15 @@ const gotSingleProduct = (product) => (
     product
   }
 )
+
+const gettingAllProducts = () => ({
+  type: GETTING_ALL_PRODUCTS
+})
+
+const gotAllProducts = data => ({
+  type: GOT_ALL_PRODUCTS,
+  data
+})
 
 //Thunk 
 export const getProduct = (id) => {
@@ -28,11 +40,23 @@ export const getProduct = (id) => {
   }
 }
 
+export const getAllProducts = () => {
+  return async dispatch => {
+    dispatch(gettingAllProducts())
+    const {data} = await axios.get('/api/products')
+    dispatch(gotAllProducts(data))
+  }
+}
+
 //Reducer
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case SELECTED_PRODUCT:
       return { ...state, selectedProduct: action.product }
+    case GETTING_ALL_PRODUCTS:
+      return { ...state, loading: true }
+    case GOT_ALL_PRODUCTS:
+      return { ...state, products: action.products }
     default:
       return state
   }
