@@ -14,7 +14,7 @@ const Product = props => {
         <button
           type="button"
           onClick={() => {
-            props.handleClick(product.id)
+            props.handleClick(product)
           }}
         >
           Add
