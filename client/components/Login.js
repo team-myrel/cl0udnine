@@ -21,6 +21,12 @@ class Login extends Component {
       email: '',
       password: ''
     })
+    alert(
+      'You submitted' +
+        this.state.email +
+        ' at location: ' +
+        this.state.password
+    )
   }
 
   handleChange(e) {
