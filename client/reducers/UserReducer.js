@@ -48,15 +48,23 @@ export const auth = (email, password, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
-    history.push('/')
+    history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
 }
 
+export const login = (email, password) => async dispatch => {
+  try {
+    const {user} = await axios.post('/auth/login', {email, password})
+    dispatch(getUser(user))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const addingUser = newUser => async dispatch => {
   try {
-    console.log('made it to the addingUser thunk')
     const {data} = await axios.post('/auth/signup', newUser)
     dispatch(addUser(data))
   } catch (err) {

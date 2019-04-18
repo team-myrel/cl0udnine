@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 // import PropTypes from 'prop-types'
-import {auth} from '../reducers/UserReducer'
+import {login} from '../reducers/UserReducer'
 
 class Login extends Component {
   constructor() {
@@ -16,7 +16,7 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.auth(this.state)
+    this.props.login(this.state)
     this.setState({
       email: '',
       password: ''
@@ -50,7 +50,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     )
@@ -58,7 +58,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = {
-  auth
+  login
 }
 
 export default connect(null, mapDispatchToProps)(Login)
