@@ -20,15 +20,6 @@ const Order = db.define('order', {
    {
     instanceMethods: {
       getTotalPrice: function () {
-        // let totalPrice = 0
-        // return this.getProducts({ through: { attributes: ['quantity'] } })
-        //   .then(itemsInOrder => {
-        //     itemsInOrder.forEach(item => {
-        //       totalPrice += item.orderproduct.quantity * item.price
-        //     })
-        //     return totalPrice / 100
-        //   }
-        //
         //* TODO: work on getTotalPrice
   .catch(err => {
         console.error(err);

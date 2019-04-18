@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../reducers/UserReducer'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { logout } from '../reducers/UserReducer'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
+const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <h1>Cloud Nine</h1>
     <nav>
       {isLoggedIn ? (
         <div>
+          <h1>I'm Logged In!!!!</h1>
           {/* The navbar will show these links after you log in */}
           <Link to="/">Home</Link>
+          <Link to="/products">Products</Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
@@ -21,12 +23,13 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           {/*based on CSS, change the word 'Cart' to a cart icon*/}
         </div>
       ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
+          <div>
+            <h1>I'm Logged OUT!!!!</h1>
+            {/* The navbar will show these links before you log in */}
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+          </div>
+        )}
     </nav>
     <hr />
   </div>

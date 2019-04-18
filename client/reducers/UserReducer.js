@@ -60,7 +60,6 @@ export const login = (email, password) => async dispatch => {
   let user
   try {
     user = await axios.post('/auth/login', {email, password})
-    dispatch(getUser(user))
   } catch (err) {
     console.error(err)
     return dispatch(getUser({error: err}))
@@ -112,7 +111,7 @@ export default function(state = defaultUser, action) {
     case GET_USER:
       return action.user
     case REMOVE_USER:
-      return
+      return state
     case ADD_USER:
       return {...state, users: [...state.users, action.newUser]}
     default:
