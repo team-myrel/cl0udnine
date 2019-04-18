@@ -44,7 +44,7 @@ const Product = db.define('product', {
       notEmpty: true
     }
   },
-  benefits: {
+  purpose: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
@@ -66,7 +66,7 @@ const Product = db.define('product', {
       notEmpty: true
     }
   },
-  quantity: {
+  stock: {
     type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
