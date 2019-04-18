@@ -8,7 +8,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <h1>Cloud Nine</h1>
     <nav>
-      {isLoggedIn ? (
+      {!isLoggedIn ? (
         <div>
           <h1>I'm Logged In!!!!</h1>
           {/* The navbar will show these links after you log in */}
@@ -40,7 +40,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.Users
+    isLoggedIn: !!state.Users.user.email
   }
 }
 
