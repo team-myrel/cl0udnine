@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+// import PropTypes from 'prop-types'
 import {addingUser} from '../reducers/UserReducer'
 
 class SignupForm extends Component {
@@ -138,4 +139,13 @@ const mapDispatchToProps = {
 }
 
 export default connect(null, mapDispatchToProps)(SignupForm)
-// export default SignupForm
+
+/**
+ * PROP TYPES
+ */
+// SignupForm.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   displayName: PropTypes.string.isRequired,
+//   handleSubmit: PropTypes.func.isRequired,
+//   error: PropTypes.object
+// }
