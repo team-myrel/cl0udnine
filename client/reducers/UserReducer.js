@@ -12,13 +12,13 @@ const GET_ALL_USERS = 'GET_ALL_USERS'
 /**
  * ACTION CREATORS
  */
-const getUser = user => ({type: GET_USER, user})
-const removeUser = user => ({type: REMOVE_USER, user})
+const getUser = user => ({ type: GET_USER, user })
+const removeUser = user => ({ type: REMOVE_USER, user })
 const addUser = newUser => ({
   type: ADD_USER,
   newUser
 })
-const getAllUsers = users => ({type: GET_ALL_USERS, users})
+const getAllUsers = users => ({ type: GET_ALL_USERS, users })
 
 /**
  * INITIAL STATE
@@ -43,9 +43,9 @@ export const me = () => async dispatch => {
 export const auth = (email, password, method) => async dispatch => {
   let res
   try {
-    res = await axios.post(`/auth/${method}`, {email, password})
+    res = await axios.post(`/auth/${method}`, { email, password })
   } catch (authError) {
-    return dispatch(getUser({error: authError}))
+    return dispatch(getUser({ error: authError }))
   }
 
   try {
@@ -59,10 +59,10 @@ export const auth = (email, password, method) => async dispatch => {
 export const login = (email, password) => async dispatch => {
   let user
   try {
-    user = await axios.post('/auth/login', {email, password})
+    user = await axios.post('/auth/login', { email, password })
   } catch (err) {
     console.error(err)
-    return dispatch(getUser({error: err}))
+    return dispatch(getUser({ error: err }))
   }
 
   try {
@@ -75,7 +75,7 @@ export const login = (email, password) => async dispatch => {
 
 export const gettingAllUsers = () => async dispatch => {
   try {
-    const {data} = await axios.get('/api/users')
+    const { data } = await axios.get('/api/users')
     return dispatch(getAllUsers(data))
   } catch (err) {
     console.error(err)
@@ -84,7 +84,7 @@ export const gettingAllUsers = () => async dispatch => {
 
 export const addingUser = newUser => async dispatch => {
   try {
-    const {data} = await axios.post('/auth/signup', newUser)
+    const { data } = await axios.post('/auth/signup', newUser)
     dispatch(addUser(data))
   } catch (err) {
     console.error(err)
@@ -104,16 +104,16 @@ export const logout = () => async dispatch => {
 /**
  * REDUCER
  */
-export default function(state = defaultUser, action) {
+export default function (state = defaultUser, action) {
   switch (action.type) {
     case GET_ALL_USERS:
-      return {...state, users: action.users}
+      return { ...state, users: action.users }
     case GET_USER:
-      return action.user
+      return { ...state, user: action.user }
     case REMOVE_USER:
       return state
     case ADD_USER:
-      return {...state, users: [...state.users, action.newUser]}
+      return { ...state, users: [...state.users, action.newUser] }
     default:
       return state
   }
