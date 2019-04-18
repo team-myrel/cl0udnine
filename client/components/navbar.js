@@ -19,6 +19,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </a>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/cart">Cart</Link>
+          {/*based on CSS, change the word 'Cart' to a cart icon*/}
         </div>
       ) : (
           <div>

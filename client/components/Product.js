@@ -7,9 +7,19 @@ const Product = props => {
   return (
     <div>
       <img src={product.imgUrl} />
-      <h4>
-        <Link to={`products/${product.id}`}>{product.name}</Link>
-      </h4>
+      <div>
+        <h4>
+          <Link to={`products/${product.id}`}>{product.name}</Link>
+        </h4>
+        <button
+          type="button"
+          onClick={() => {
+            props.handleClick(product.id)
+          }}
+        >
+          Add
+        </button>
+      </div>
       <h6>{product.price}</h6>
     </div>
   )
