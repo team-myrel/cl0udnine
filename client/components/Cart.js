@@ -7,17 +7,15 @@ class Cart extends Component {
     let addedItems = this.props.cart.length ? (
       this.props.cart.map(product => {
         return (
-          <div>
-            <li key={product.id}>
-              <div>
-                <img src={product.imgUrl} />
-              </div>
-              <div>
-                <p>{product.name}</p>
-                <p>{product.price}</p>
-                {/*quantity of this specific item in the cart*/}
-              </div>
-            </li>
+          <div key={product.id}>
+            <div>
+              <img src={product.imgUrl} />
+            </div>
+            <div>
+              <p>{product.name}</p>
+              <p>{product.price}</p>
+              {/*quantity of this specific item in the cart*/}
+            </div>
           </div>
         )
       })
