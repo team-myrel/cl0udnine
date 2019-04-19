@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getProduct} from '../reducers/ProductsReducer'
-import {addToCartThunk} from '../reducers/CartReducer'
+import { addToCartThunk } from '../reducers/CartReducer'
+import {Link} from 'react-router-dom'
 
 class SingleProduct extends Component {
   constructor(props) {
@@ -19,9 +20,8 @@ class SingleProduct extends Component {
 
   render() {
     const product = this.props.selectedProduct
-    return (
-      <div>
-        <img src={product.imgUrl} />
+    return <div>
+          <img src={product.imgUrl} />
         <h3>Name: {product.name} </h3>
         <p> Description: {product.description} </p>
         <p>Scent: {product.scent} </p>
@@ -31,17 +31,13 @@ class SingleProduct extends Component {
         <p>Benefits: {product.benefits} </p>
         <p>Molecular Composition: {product.molecularComposition} </p>
         <div>
-          <button
-            type="button"
-            onClick={() => {
+          <button type="button" onClick={() => {
               this.handleClick(product)
-            }}
-          >
+            }}>
             Add to Cart
           </button>
         </div>
       </div>
-    )
   }
 }
 const mapStateToProps = state => {

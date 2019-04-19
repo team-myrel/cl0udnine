@@ -16,7 +16,6 @@ const addToCart = product => ({
 
 // thunk
 export const addToCartThunk = product => {
-  console.log('hitting thunk?')
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/products/${product.id}`)
@@ -29,9 +28,6 @@ export const addToCartThunk = product => {
 
 // reducer
 const cartReducer = (state = initialState, action) => {
-  console.log('action', action)
-  console.log('state', state)
-
   switch (action.type) {
     case ADD_TO_CART:
       return {...state, cart: [...state.cart, action.product]}
