@@ -17,7 +17,7 @@ const Product = props => {
             props.handleClick(product)
           }}
         >
-          Add
+          Add to Cart
         </button>
       </div>
       <h6>{product.price}</h6>
