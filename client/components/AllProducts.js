@@ -26,15 +26,13 @@ class AllProducts extends React.Component {
     return (
       <div>
         <h2>Products</h2>
-        <ul>
-          {this.props.allProducts.map(product => (
-            <Product
-              product={product}
-              key={product.id}
-              handleClick={this.handleClick}
-            />
-          ))}
-        </ul>
+        {this.props.allProducts.map(product => (
+          <Product
+            product={product}
+            key={product.id}
+            handleClick={this.handleClick}
+          />
+        ))}
       </div>
     )
   }
