@@ -19,7 +19,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </a>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart"><img src="https://image.flaticon.com/icons/svg/2/2772.svg" /></Link>
           {/*based on CSS, change the word 'Cart' to a cart icon*/}
         </div>
       ) : (
@@ -28,6 +28,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             {/* The navbar will show these links before you log in */}
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
+            <Link to="/products">Products</Link>
+            <Link to="/cart"><img src="https://image.flaticon.com/icons/svg/2/2772.svg" /></Link>
           </div>
         )}
     </nav>
