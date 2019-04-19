@@ -31,7 +31,12 @@ class Splash extends Component {
         erat volutpat.</p>
             <a className="arrow arrow-prev" href="#item-2"></a>
             <a className="arrow arrow-next" href="#item-1"></a>
-          </div></div></div>
+          </div></div>
+        <br /><p>rem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam
+erat volutpatrem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam
+erat volutpatrem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam
+erat volutpatrem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam
+        erat volutpat</p></div>
     )
   }
 }
