@@ -1,7 +1,35 @@
-body {
-  font-family: sans-serif;
-  border: 1px solid blue;
+
+
+* {
+  box-sizing: border-box;
+text-shadow: 1px 1px gray;
+text-align: center;
 }
+
+body {
+background-color: linear-gradient(#69618a, #032041);
+font-family: 'Roboto', sans-serif;
+  letter-spacing: 3px;
+  font-size: 16px;
+  border: 1px solid blue;
+  background-image: url("https://bckgrnds.files.wordpress.com/2011/10/cloud_by_avrt-d4azyvm.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+nav {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 5px;
+
+}
+
 
 a {
   text-decoration: none;
@@ -13,11 +41,18 @@ label {
 
 nav {
   border: 1px solid green;
+  background-color: midnightblue;
+  color: white;
 }
+
 
 nav a {
   display: inline-block;
   margin: 1em;
+}
+
+nav a:hover{
+  color:
 }
 
 form div {
@@ -26,11 +61,53 @@ form div {
   border: 1px solid red;
 }
 
-welcometext {
+.welcometext {
+  font-family: helvetica;
+  letter-spacing: 2px;
+  text-align: center;
   size: 24px;
+
 }
 
+nav img{
+box-shadow: 0px 0px black;
+border-radius: 0%;
+width: 30px;
+height: 30px;
+}
 
+nav img:hover{
+box-shadow: 0px 0px black;
+border-radius: 0%;
+width: 40px;
+height: 40px;
+}
+
+img{
+box-shadow: 10px 10px black;
+width: 300px;
+height: 300px;
+border-radius: 50%;
+}
+
+img:hover{
+box-shadow: 10px 10px lightblue;
+height: 500px;
+width: 500px;
+transition-timing-function: ease-in-out;
+  transition: 0.8s;
+  border-radius: 50%;
+}
+
+a {
+  color: lightblue;
+}
+
+a:hover {
+  color: white;
+  transition: 0.8s;
+  font-size: 18px;
+}
 
 .carousel-wrapper{
   height:400px;
@@ -79,7 +156,7 @@ welcometext {
         background-position: 10px 50%;
       }
     }
-}
+
 
 /*Select every element*/
 [id^="item"] {
@@ -113,7 +190,7 @@ welcometext {
     z-index: 3;
     opacity: 1;
   }
-}
+
 
 
 
