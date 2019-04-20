@@ -4,18 +4,18 @@ const db = require('../../db')
 
 const User = db.define('user', {
   firstName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   lastName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   email: {
     type: Sequelize.STRING,
@@ -38,45 +38,49 @@ const User = db.define('user', {
       return () => this.getDataValue('salt')
     }
   },
-  address: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
-  city: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
-  state: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
-  country: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
-  zipCode: {
-    type: Sequelize.INTEGER
-  },
+  // address: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  //   validate: {
+  //     notEmpty: true
+  //   }
+  // },
+  // city: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  //   validate: {
+  //     notEmpty: true
+  //   }
+  // },
+  // state: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  //   validate: {
+  //     notEmpty: true
+  //   }
+  // },
+  // country: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  //   validate: {
+  //     notEmpty: true
+  //   }
+  // },
+  // zipCode: {
+  //   type: Sequelize.INTEGER
+  // },
   isAdmin: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  googleId: {
+    type: Sequelize.STRING,
+    defaultValue: null
+  },
+  isGuest: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
-  // googleId: {
-  //   type: Sequelize.STRING,
-  //   defaultValue: null
-  // }
 })
 
 module.exports = User
