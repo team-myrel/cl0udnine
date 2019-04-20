@@ -14,8 +14,24 @@ const Order = db.define('order', {
       max: 20
     }
   },
-  price: {
-    type: Sequelize.DECIMAL
+  total: {
+    type: Sequelize.FLOAT,
+    allowNull: false,
+    defaultValue: 0,
+    validate: {
+      isNumeric: true
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      }
+    },
+    isGuest: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: true
+    }
   }
   //  {
   //   instanceMethods: {
