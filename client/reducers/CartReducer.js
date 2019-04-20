@@ -6,19 +6,32 @@ const initialState = {
 }
 
 // action types
+const GET_CART = 'GET_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
 
 // action creators
+const getCartAction = data => ({
+  type: GET_CART,
+  data
+})
+
 const addToCart = product => ({
   type: ADD_TO_CART,
   product
 })
 
 // thunk
+export const getCartThunk = () => {
+  return async dispatch => {
+    const {data} = await axios.get('/api/cart')
+    dispatch(getCartAction(data))
+  }
+}
+
 export const addToCartThunk = product => {
   return async dispatch => {
     try {
-      const {data} = await axios.get(`/api/products/${product.id}`)
+      const {data} = await axios.post('/api/cart', product)
       dispatch(addToCart(data))
     } catch (err) {
       throw err
@@ -30,12 +43,9 @@ export const addToCartThunk = product => {
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      console.log('state in reducer', state)
-      if (state.cart.includes(action.product)) {
-        action.product.quantity += 1
-      }
-      //console.log({...state, cart: [...state.cart, action.product]})
       return {...state, cart: [...state.cart, action.product]}
+    case GET_CART:
+      return {...state, cart: action.data}
     default:
       return state
   }

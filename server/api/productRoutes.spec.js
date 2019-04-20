@@ -20,11 +20,11 @@ describe('Product routes', () => {
       elevation: 0,
       quality: 'Could be better',
       price: 100,
-      benefits: 'Productivity and Loss of Appetite',
+      purpose: 'Productivity and Loss of Appetite',
       imageUrl:
         'https://lh3.googleusercontent.com/GDkUTO5OsGce_APmYDByGo9uSaEk6kFjfaJNBuBhCOemLf8-sG1Zq71aAgNjChb3Am8',
       molecularComposition: 'CO2',
-      quantity: 15
+      stock: 15
     }
 
     beforeEach(() => {
@@ -35,22 +35,22 @@ describe('Product routes', () => {
         elevation: nycAir.elevation,
         quality: nycAir.quality,
         price: nycAir.price,
-        benefits: nycAir.benefits,
+        purpose: nycAir.purpose,
         imageUrl: nycAir.imageUrl,
         molecularComposition: nycAir.molecularComposition,
-        quantity: nycAir.quantity
+        stock: nycAir.stock
       })
     })
 
-    it('GET /api/users', async () => {
+    it('GET /api/products', async () => {
       const res = await request(app)
         .get('/api/products')
         .expect(200)
 
       //expect(res.body).to.be.an('array')
-      expect(res.body[0].name).to.be.equal(nycAir.name)
-      expect(res.body[0].description).to.be.equal(nycAir.description)
-      expect(res.body[0].scent).to.be.equal(nycAir.scent)
+      expect(res.body[0].name).to.equal(nycAir.name)
+      expect(res.body[0].description).to.equal(nycAir.description)
+      expect(res.body[0].scent).to.equal(nycAir.scent)
     })
   }) // end describe('/api/products')
 }) // end describe('Product routes')

@@ -2,18 +2,21 @@ const Sequelize = require('sequelize')
 const db = require('../../db')
 
 const Cart = db.define('cart', {
-  productId: {
-    type: Sequelize.INTEGER
-  },
   quantity: {
     type: Sequelize.INTEGER,
     default: 1
   },
   pricePerItem: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL(10, 2),
+    get() {
+      return parseFloat(this.getDataValue('pricePerItem'))
+    }
   },
   totalCost: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL(10, 2),
+    get() {
+      return parseFloat(this.getDataValue('totalCost'))
+    }
   }
 })
 
