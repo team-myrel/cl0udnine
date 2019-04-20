@@ -1,36 +1,26 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {getCartThunk} from '../reducers/CartReducer'
+import CartItem from './CartItem'
 
 class Cart extends Component {
+  componentDidMount() {
+    this.props.getCartThunk()
+  }
+
   render() {
-    let addedItems = this.props.cart.length ? (
-      this.props.cart.map(product => {
-        return <div key={product.id}>
-            <div>
-              <Link to={`products/${product.id}`}>
-                <img src={product.imgUrl} />
-              </Link>
-              
-            </div>
-            <div>
-              <p>
-                <Link to={`products/${product.id}`}>
-                  {product.name}
-                </Link>
-              </p>
-              <p>{product.price}</p>
-              {/*quantity of this specific item in the cart*/}
-            </div>
-          </div>
-      })
-    ) : (
-      <p>Nothing.</p>
-    )
+    const {cart} = this.props
+
+    if (!cart.length) return <div>No items in your cart.</div>
+
     return (
       <div>
         <h5>You have ordered:</h5>
-        <ul>{addedItems}</ul>
+        <ul>
+          {cart.map(cartItem => (
+            <CartItem key={cartItem.id} cartItem={cartItem} />
+          ))}
+        </ul>
       </div>
     )
   }
@@ -40,4 +30,8 @@ const mapStateToProps = state => ({
   cart: state.Cart.cart
 })
 
-export default connect(mapStateToProps)(Cart)
+const mapDispatchToProps = dispatch => ({
+  getCartThunk: () => dispatch(getCartThunk())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
