@@ -17,15 +17,15 @@ const Order = db.define('order', {
   price: {
     type: Sequelize.DECIMAL
   },
-   {
-    instanceMethods: {
-      getTotalPrice: function () {
-        //* TODO: work on getTotalPrice
-  .catch(err => {
-        console.error(err);
-      })
-    }
-  }
+  //  {
+  //   instanceMethods: {
+  //     getTotalPrice: function () {
+  //       //* TODO: work on getTotalPrice
+  // .catch(err => {
+  //       console.error(err);
+  //     })
+  //   }
+  // }
   });
 
 module.exports = Order

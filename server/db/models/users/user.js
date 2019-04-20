@@ -16,7 +16,6 @@ const User = db.define('user', {
     validate: {
       notEmpty: true
     }
-
   },
   email: {
     type: Sequelize.STRING,
@@ -68,11 +67,16 @@ const User = db.define('user', {
     }
   },
   zipCode: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER
   },
   isAdmin: {
-      type: Sequelize.BOOLEAN
-    }
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  }
+  // googleId: {
+  //   type: Sequelize.STRING,
+  //   defaultValue: null
+  // }
 })
 
 module.exports = User
