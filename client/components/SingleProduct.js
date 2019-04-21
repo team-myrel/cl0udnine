@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getProduct} from '../reducers/ProductsReducer'
 import { addToCartThunk } from '../reducers/CartReducer'
-import {Link} from 'react-router-dom'
 
 class SingleProduct extends Component {
   constructor(props) {

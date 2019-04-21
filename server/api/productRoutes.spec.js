@@ -13,6 +13,7 @@ describe('Product routes', () => {
 
   describe('/api/products/', () => {
     const nycAir = {
+      id: 1,
       name: 'NYC Air',
       description:
         'When you miss the secondhand smoke, sidewalk pee, and perpetual garbage day',
@@ -52,5 +53,11 @@ describe('Product routes', () => {
       expect(res.body[0].description).to.equal(nycAir.description)
       expect(res.body[0].scent).to.equal(nycAir.scent)
     })
-  }) // end describe('/api/products')
+    it('gives a product based on the id specified', async () => {
+      const res = await request(app)
+        .get('/api/products/1')
+        .expect(200)
+      expect(res.body).to.be.an('object')
+    })
+  })
 }) // end describe('Product routes')

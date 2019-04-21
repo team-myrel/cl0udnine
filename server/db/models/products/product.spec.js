@@ -17,12 +17,12 @@ describe('Product model', () => {
       price: 5.99,
       benefits: 'feel good',
       molecularComposition: 'O2N2CO2',
-      quantity: 5
+      stock: 5
     })
   })
 
   describe('definition of atttributes', () => {
-    it('includes `name`,`description`,`scent`,`elevation`,`quality`, `price`,`benefits`,`imgUrl`,`molecularComposition`,`quantity` fields', () => {
+    it('includes `name`,`description`,`scent`,`elevation`,`quality`, `price`,`benefits`,`imgUrl`,`molecularComposition`,`stock` fields', () => {
         expect(product.name).to.equal('AIR')
       }
     )
