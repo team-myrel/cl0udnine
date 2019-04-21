@@ -34,7 +34,7 @@ async function seed() {
         'A strikingly salty scent featuring base notes of halite with top and middle notes of dried balsam and fresh sycamore fig.',
       elevation: '-4203',
       quality: 'Minimal pollution',
-      price: '$20390.00',
+      price: '20390.00',
       purpose: 'Rejuvination',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',

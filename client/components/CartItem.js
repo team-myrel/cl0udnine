@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 const CartItem = props => {
   const product = props.cartItem.product
   const quantity = props.cartItem.quantity
+  const cartItem = props.cartItem
 
   if (!product) return <div>Loading Item...</div>
 
@@ -20,6 +21,14 @@ const CartItem = props => {
         </p>
         <p>{product.price}</p>
         <p>Quantity: {quantity}</p>
+        <button
+          type="button"
+          onClick={() => {
+            props.removeItem(cartItem.id)
+          }}
+        >
+          Delete From Cart
+        </button>
       </div>
     </div>
   )

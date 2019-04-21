@@ -1,11 +1,20 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getCartThunk} from '../reducers/CartReducer'
+import {getCartThunk, deleteItemThunk} from '../reducers/CartReducer'
 import CartItem from './CartItem'
 
 class Cart extends Component {
+  constructor() {
+    super()
+    this.removeItem = this.removeItem.bind(this)
+  }
+
   componentDidMount() {
     this.props.getCartThunk()
+  }
+
+  removeItem = product => {
+    this.props.deleteItemThunk(product)
   }
 
   render() {
@@ -18,7 +27,11 @@ class Cart extends Component {
         <h5>You have ordered:</h5>
         <ul>
           {cart.map(cartItem => (
-            <CartItem key={cartItem.id} cartItem={cartItem} />
+            <CartItem
+              key={cartItem.id}
+              cartItem={cartItem}
+              removeItem={this.removeItem}
+            />
           ))}
         </ul>
       </div>
@@ -31,7 +44,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getCartThunk: () => dispatch(getCartThunk())
+  getCartThunk: () => dispatch(getCartThunk()),
+  deleteItemThunk: id => dispatch(deleteItemThunk(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)
