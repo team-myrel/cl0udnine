@@ -14,15 +14,22 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+router.put('/', async (req, res, next) => {
   try {
     const {id, price, stock} = req.body
-    let cartItem = await Cart.findByPk(id)
+
+    let cartItem = await Cart.findOne({
+      where: {
+        productId: id
+      }
+    })
 
     if (cartItem && stock > 1) {
+      let quant = cartItem.quantity
       cartItem = await cartItem.update({
-        quantity: Sequelize.literal('quantity + 1')
+        quantity: quant + 1
       })
+      res.json(cartItem)
     } else if (stock > 1) {
       res.json(
         await Cart.create({
