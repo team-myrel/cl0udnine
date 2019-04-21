@@ -8,6 +8,7 @@ const initialState = {
 // action types
 const GET_CART = 'GET_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
+const DELETE_ITEM = 'DELETE_ITEM'
 
 // action creators
 const getCartAction = data => ({
@@ -18,6 +19,11 @@ const getCartAction = data => ({
 const addToCart = product => ({
   type: ADD_TO_CART,
   product
+})
+
+const deleteItem = id => ({
+  type: DELETE_ITEM,
+  id
 })
 
 // thunk
@@ -39,6 +45,17 @@ export const addToCartThunk = product => {
   }
 }
 
+export const deleteItemThunk = id => {
+  return async dispatch => {
+    try {
+      await axios.delete(`/api/cart/${id}`)
+      dispatch(deleteItem(id))
+    } catch (err) {
+      throw err
+    }
+  }
+}
+
 // reducer
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -46,6 +63,11 @@ const cartReducer = (state = initialState, action) => {
       return {...state, cart: [...state.cart, action.product]}
     case GET_CART:
       return {...state, cart: action.data}
+    case DELETE_ITEM:
+      return {
+        ...state,
+        cart: state.cart.filter(current => current.id !== action.id)
+      }
     default:
       return state
   }
