@@ -4,7 +4,7 @@ import {getAllProducts} from '../reducers/ProductsReducer'
 import Product from './Product'
 import {addToCartThunk} from '../reducers/CartReducer'
 
-class AllProducts extends React.Component {
+export class AllProducts extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
@@ -22,11 +22,11 @@ class AllProducts extends React.Component {
     const {loading} = this.props
 
     if (loading) return <div>Putting on Airs...</div>
-
+    const allProducts = this.props.allProducts
     return (
       <div>
         <h2>Products</h2>
-        {this.props.allProducts.map(product => (
+        {allProducts.map(product => (
           <Product
             product={product}
             key={product.id}
