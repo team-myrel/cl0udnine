@@ -37,7 +37,7 @@ export const getCartThunk = () => {
 export const addToCartThunk = product => {
   return async dispatch => {
     try {
-      const {data} = await axios.post('/api/cart', product)
+      const {data} = await axios.put('/api/cart', product)
       dispatch(addToCart(data))
     } catch (err) {
       throw err
@@ -60,7 +60,11 @@ export const deleteItemThunk = id => {
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      return {...state, cart: [...state.cart, action.product]}
+      if (state.cart.find(item => item.id === action.product.id)) {
+        return state
+      } else {
+        return {...state, cart: [...state.cart, action.product]}
+      }
     case GET_CART:
       return {...state, cart: action.data}
     case DELETE_ITEM:
