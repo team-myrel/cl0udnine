@@ -14,3 +14,14 @@ router.get('/:userId', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/:userId/singleOrder/:orderId', async (req, res, next) => {
+  try {
+    const order = await Order.findByPk(req.params.orderId, {
+      include: [{model: Item, include: {model: Product}}]
+    })
+    res.json(order)
+  } catch (err) {
+    next(err)
+  }
+})
