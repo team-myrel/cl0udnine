@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class Splash extends Component {
   render() {
     return (
-      <div>
+      <div id="container">
         <h1>Welcome to Cloud 9 </h1>
         <div className="carousel-wrapper">
           <span id="item-1" />
