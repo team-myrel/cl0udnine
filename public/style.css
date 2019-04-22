@@ -253,16 +253,25 @@ a:hover {
     opacity: 1;
 }
 
-#item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4, #item-5:target ~ .item-5,#item-6:target ~ .item-6,#item-7:target ~ .item-7,#item-8:target ~ .item-8,#item-9:target ~ .item-9 {
-    z-index: 3;
-    opacity: 1;
-}
+
 
 #cartItemDiv {
   display: flex;
   flex-direction: row
 }
 
+
+#item-2:target ~ .item-2,
+#item-3:target ~ .item-3,
+#item-4:target ~ .item-4,
+#item-5:target ~ .item-5,
+#item-6:target ~ .item-6,
+#item-7:target ~ .item-7,
+#item-8:target ~ .item-8,
+#item-9:target ~ .item-9{
+    z-index: 3;
+    opacity: 1;
+  }
 
 
 
