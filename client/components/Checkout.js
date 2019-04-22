@@ -2,8 +2,22 @@ import React, {Component} from 'react'
 import {getCartThunk} from '../reducers/CartReducer'
 import {connect} from 'react-redux'
 import CartItem from './CartItem'
+import Stripe from './Stripe'
 
 class Checkout extends Component {
+  constructor() {
+    super()
+    this.state = {
+      email: '',
+      name: '',
+      street: '',
+      town: '',
+      zip: '',
+      state: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
   componentDidMount() {
     this.props.getCartThunk()
@@ -24,6 +38,8 @@ class Checkout extends Component {
             />
           ))}
         </ul>
+        <h3>Subtotal: ${this.props.subtotal}</h3>
+        <Stripe amount={this.props.subtotal} onSubmit={this.handleSubmit} />
       </div>
     )
   }
