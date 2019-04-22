@@ -15,8 +15,8 @@ class Checkout extends Component {
       zip: '',
       state: ''
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    // this.handleChange = this.handleChange.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
