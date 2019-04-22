@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {getProduct} from '../reducers/ProductsReducer'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getProduct } from '../reducers/ProductsReducer'
 import { addToCartThunk } from '../reducers/CartReducer'
 
 class SingleProduct extends Component {
@@ -19,24 +19,26 @@ class SingleProduct extends Component {
 
   render() {
     const product = this.props.selectedProduct
-    return <div>
-          <img src={product.imgUrl} />
-        <h3>Name: {product.name} </h3>
-        <p> Description: {product.description} </p>
-        <p>Scent: {product.scent} </p>
-        <p>Elevation: {product.elevation} </p>
-        <h5>Quality: {product.quality} </h5>
-        <h3>Price Per Unit: {product.price} </h3>
-        <p>Benefits: {product.benefits} </p>
-        <p>Molecular Composition: {product.molecularComposition} </p>
-        <div>
-          <button type="button" onClick={() => {
-              this.handleClick(product)
-            }}>
-            Add to Cart
+    return <div id="container">
+      <img src={product.imgUrl} />
+      <h3><b>Name:</b> {product.name} </h3>
+      <p> <b>Description:</b> {product.description} </p>
+      <p><b>Scent:</b>/ {product.scent} </p>
+      <p><b>Elevation:</b> {product.elevation} </p>
+      <h5><b>Quality:</b> {product.quality} </h5>
+      <p><b>Benefits:</b> {product.benefits} </p>
+      <p><b>Molecular Composition:</b> {product.molecularComposition} </p>
+      <h1>Price Per Unit: {product.price} </h1>
+      <div>
+        <button type="button" onClick={() => {
+          this.handleClick(product)
+        }}>
+          Add to Cart
           </button>
-        </div>
+
       </div>
+      <br />
+    </div >
   }
 }
 const mapStateToProps = state => {

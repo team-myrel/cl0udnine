@@ -1,32 +1,34 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import {auth} from '../reducers/UserReducer'
+import { auth } from '../reducers/UserReducer'
 
 /**
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+  const { name, displayName, handleSubmit, error } = props
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name} className="formStyle">
-        {name === 'signup' && (
-          <div>
+    <div id="container">
+      <div >
+        <form onSubmit={handleSubmit} name={name} className="formStyle">
+          {name === 'signup' && (
             <div>
-              <label htmlFor="firstName" className="label">
-                <small>First Name</small>
-              </label>
-              <input name="firstName" type="text" className="input" />
-            </div>
-            <div>
-              <label htmlFor="lastName" className="label">
-                <small>Last Name</small>
-              </label>
-              <input name="lastName" type="text" className="input" />
-            </div>
-            {/* <div>
+              <div>
+                <h1>Sign up here! <br /></h1>
+                <label htmlFor="firstName" className="label">
+                  <small>First Name</small>
+                </label>
+                <input name="firstName" type="text" className="input" />
+              </div>
+              <div>
+                <label htmlFor="lastName" className="label">
+                  <small>Last Name</small>
+                </label>
+                <input name="lastName" type="text" className="input" />
+              </div>
+              {/* <div>
               <label htmlFor="address" className="label">
                 <small>Address</small>
               </label>
@@ -50,34 +52,37 @@ const AuthForm = props => {
               </label>
               <input name="country" type="text" className="input" />
             </div> */}
-            {/* <div>
+              {/* <div>
               <label htmlFor="zipCode" className="label">
                 <small>Zip Code</small>
               </label>
               <input name="zipCode" type="text" className="input" />
             </div> */}
+            </div>
+          )}
+          <div>
+            {name === 'login' && (
+              <h1>Log in here! <br /></h1>)}
+            <label htmlFor="email" className="label">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" className="input" />
           </div>
-        )}
-        <div>
-          <label htmlFor="email" className="label">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" className="input" />
-        </div>
-        <div>
-          <label htmlFor="password" className="label">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" className="input" />
-        </div>
-        <div>
-          <button className="sendBtn" type="submit">
-            {displayName}
-          </button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-        <a href="/auth/google">{displayName} with Google</a>
-      </form>
+          <div>
+            <label htmlFor="password" className="label">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" className="input" />
+          </div>
+          <div>
+            <button className="sendBtn" type="submit">
+              {displayName}
+            </button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+          <a href="/auth/google">{displayName} with Google</a>
+        </form>
+      </div>
     </div>
   )
 }
