@@ -4,8 +4,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../reducers/UserReducer'
 
+<<<<<<< HEAD
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
+=======
+const Navbar = ({handleClick, isLoggedIn}) => (
+  <div id="nav">
+>>>>>>> 7d237e5c36bcd7abc4d52e2d14c6a68ac7a7e039
     <nav>
       {isLoggedIn ? (
         <div>
@@ -20,16 +25,17 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </a>
         </div>
       ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/products">Products</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-        )}
+        <div>
+          {/* The navbar will show these links before you log in */}
+          <Link to="/products">Products</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
+        </div>
+      )}
     </nav>
     <div id="container">
-      <div className="title">Welcome to Cloud 9</div></div>
+      <div className="title">Welcome to Cloud 9</div>
+    </div>
   </div>
 )
 
