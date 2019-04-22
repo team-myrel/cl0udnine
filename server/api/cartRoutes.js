@@ -5,7 +5,10 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const cart = await Cart.findAll({
-      include: [{model: Product}]
+      include: [{model: Product}],
+      where: {
+        userId: null
+      }
     })
     res.json(cart)
   } catch (err) {
@@ -19,7 +22,8 @@ router.put('/', async (req, res, next) => {
 
     let cartItem = await Cart.findOne({
       where: {
-        productId: id
+        productId: id,
+        userId: null
       }
     })
 
@@ -51,7 +55,8 @@ router.put('/:id', async (req, res, next) => {
 
     let cartItem = await Cart.findOne({
       where: {
-        id: cartItemId
+        id: cartItemId,
+        userId: null
       }
     })
 
@@ -70,7 +75,8 @@ router.put('/:id', async (req, res, next) => {
     } else if (req.body.change === 'dec' && quant === 1) {
       await Cart.destroy({
         where: {
-          id: req.params.id
+          id: req.params.id,
+          userId: null
         }
       })
       res.sendStatus(204)
@@ -84,7 +90,8 @@ router.delete('/:id', async (req, res, next) => {
   try {
     await Cart.destroy({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        userId: null
       }
     })
     res.sendStatus(204)

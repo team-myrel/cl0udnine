@@ -88,7 +88,8 @@ router.put('/:userId/cart/:productId', async (req, res, next) => {
 
     let cartItem = await Cart.findOne({
       where: {
-        id: cartItemId
+        id: cartItemId,
+        userId: req.params.userId
       }
     })
 
@@ -107,7 +108,8 @@ router.put('/:userId/cart/:productId', async (req, res, next) => {
     } else if (req.body.change === 'dec' && quant === 1) {
       await Cart.destroy({
         where: {
-          id: req.params.productId
+          id: req.params.productId,
+          userId: req.params.userId
         }
       })
       res.sendStatus(204)

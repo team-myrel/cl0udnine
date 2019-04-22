@@ -4,7 +4,7 @@ const db = require('../server/db')
 const Product = require('../server/db/models/products/product.js')
 
 async function seed() {
-  await db.sync({ force: true })
+  await db.sync({force: true})
   console.log('db synced!')
 
   const products = await Promise.all([
@@ -64,7 +64,7 @@ async function seed() {
         ' Prominently features a strikingly fresh base note of ceiba tree, rubber tree bark and banana leaf. The scent is perked up with top and mid notes of water lily and guava.',
       elevation: '192',
       quality: 'Minimal pollution',
-      price: '890.50',
+      price: '890.00',
       purpose: 'Health',
       molecularComposition:
         '50.202% N₂ + 33.320% O₂ + 20.44% Ar + 0.25% CO + 20.02 He + 0.06 % CH₄ + 200.04% H₂O',

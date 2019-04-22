@@ -27,7 +27,7 @@ class Cart extends Component {
   }
 
   render() {
-    const {cart} = this.props
+    const {cart, user} = this.props
 
     if (!cart.length)
       return (
@@ -51,6 +51,7 @@ class Cart extends Component {
               removeItem={this.removeItem}
               changeQuant={this.changeQuant}
               getCartThunk={this.props.getCartThunk}
+              user={user}
             />
           ))}
         </ul>
