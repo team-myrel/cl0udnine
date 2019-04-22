@@ -7,14 +7,14 @@ import {addToCartThunk} from '../reducers/CartReducer'
 export class AllProducts extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
+    this.addToCart = this.addToCart.bind(this)
   }
 
   componentDidMount() {
     this.props.getAllProducts()
   }
 
-  handleClick = product => {
+  addToCart = product => {
     this.props.addToCartThunk(product)
   }
 
@@ -30,7 +30,7 @@ export class AllProducts extends React.Component {
           <Product
             product={product}
             key={product.id}
-            handleClick={this.handleClick}
+            addToCart={this.addToCart}
           />
         ))}
       </div>
