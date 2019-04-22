@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User, Order, Item, Product, Cart} = require('../db/models')
+const {User, Order, Product, Cart} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -38,9 +38,9 @@ router.get('/:userId/orders', async (req, res, next) => {
 
 router.get('/:userId/cart', async (req, res, next) => {
   try {
-    console.log('req.params', req.params)
     const cart = await Cart.findAll({
-      include: [{model: Product}]
+      include: [{model: Product}, {model: User}],
+      where: {userId: req.params.userId}
     })
     res.json(cart)
   } catch (err) {
@@ -54,7 +54,8 @@ router.put('/:userId/cart', async (req, res, next) => {
 
     let cartItem = await Cart.findOne({
       where: {
-        productId: id
+        productId: id,
+        userId: req.params.userId
       }
     })
 
@@ -69,7 +70,8 @@ router.put('/:userId/cart', async (req, res, next) => {
         await Cart.create({
           quantity: 1,
           pricePerItem: price,
-          productId: id
+          productId: id,
+          userId: req.params.userId
         })
       )
     } else {
@@ -115,12 +117,11 @@ router.put('/:userId/cart/:productId', async (req, res, next) => {
   }
 })
 
-router.delete(':userId/cart/:productId', async (req, res, next) => {
+router.delete('/:userId/cart/:productId', async (req, res, next) => {
   try {
     await Cart.destroy({
       where: {
-        id: req.params.productId,
-        userId: req.params.userId
+        id: req.params.productId
       }
     })
     res.sendStatus(204)
