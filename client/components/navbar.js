@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { logout } from '../reducers/UserReducer'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {logout} from '../reducers/UserReducer'
 
 <<<<<<< HEAD
 const Navbar = ({ handleClick, isLoggedIn }) => (
@@ -30,6 +30,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/products">Products</Link>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/cart">
+            <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
+          </Link>
         </div>
       )}
     </nav>
