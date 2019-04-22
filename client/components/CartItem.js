@@ -6,7 +6,10 @@ const CartItem = props => {
   const quantity = props.cartItem.quantity
   const cartItem = props.cartItem
 
-  if (!product) return <div>Loading Item...</div>
+  if (!product) {
+    props.getCartThunk()
+    return <div>Loading...</div>
+  }
 
   return (
     <div id="cartItemDiv">
@@ -19,8 +22,31 @@ const CartItem = props => {
         <p>
           <Link to={`products/${product.id}`}>{product.name}</Link>
         </p>
-        <p>Price: {cartItem.totalCost}</p>
-        <p>Quantity: {quantity}</p>
+        <div id="priceQuantDiv">
+          <div id="priceDiv">
+            <p>Price: ${cartItem.totalCost}</p>
+          </div>
+          <div>
+            <p>Quantity: {quantity}</p>
+            <button
+              type="button"
+              onClick={() => {
+                props.changeQuant(cartItem.id, 'inc')
+              }}
+            >
+              +
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                props.changeQuant(cartItem.id, 'dec')
+              }}
+            >
+              -
+            </button>
+          </div>
+        </div>
+        {/*end price quant div*/}
         <button
           type="button"
           onClick={() => {

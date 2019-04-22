@@ -9,6 +9,7 @@ const initialState = {
 const GET_CART = 'GET_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
 const DELETE_ITEM = 'DELETE_ITEM'
+const CHANGE_QUANTITY = 'CHANGE_QUANTITY'
 
 // action creators
 const getCartAction = data => ({
@@ -24,6 +25,12 @@ const addToCart = product => ({
 const deleteItem = id => ({
   type: DELETE_ITEM,
   id
+})
+
+const changeQuant = (id, data) => ({
+  type: CHANGE_QUANTITY,
+  id,
+  data
 })
 
 // thunk
@@ -56,6 +63,21 @@ export const deleteItemThunk = id => {
   }
 }
 
+export const changeQuantThunk = (id, change) => {
+  const bod = {
+    change
+  }
+
+  return async dispatch => {
+    try {
+      const {data} = await axios.put(`/api/cart/${id}`, bod)
+      dispatch(changeQuant(id, data))
+    } catch (err) {
+      throw err
+    }
+  }
+}
+
 // reducer
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -71,6 +93,17 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter(current => current.id !== action.id)
+      }
+    case CHANGE_QUANTITY:
+      return {
+        ...state,
+        cart: state.cart.map(item => {
+          if (item.id === action.id) {
+            return action.data
+          } else {
+            return item
+          }
+        })
       }
     default:
       return state

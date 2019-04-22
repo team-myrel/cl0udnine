@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { logout } from '../reducers/UserReducer'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {logout} from '../reducers/UserReducer'
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="nav">
     <nav>
       {isLoggedIn ? (
@@ -20,17 +20,21 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </a>
         </div>
       ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/products">Products</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-        )}
+        <div>
+          {/* The navbar will show these links before you log in */}
+          <Link to="/products">Products</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/cart">
+            <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
+          </Link>
+        </div>
+      )}
     </nav>
     <hr />
     <div id="container">
-      <div className="title">Welcome to Cloud 9</div></div>
+      <div className="title">Welcome to Cloud 9</div>
+    </div>
   </div>
 )
 

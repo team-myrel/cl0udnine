@@ -25,10 +25,8 @@ router.put('/', async (req, res, next) => {
 
     if (cartItem && stock > 1) {
       let quant = cartItem.quantity
-      let total = cartItem.totalCost
       cartItem = await cartItem.update({
-        quantity: quant + 1,
-        totalCost: total + price
+        quantity: quant + 1
       })
       res.json(cartItem)
     } else if (stock > 1) {
@@ -41,6 +39,41 @@ router.put('/', async (req, res, next) => {
       )
     } else {
       res.send('Item out of Stock!')
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const cartItemId = req.params.id
+
+    let cartItem = await Cart.findOne({
+      where: {
+        id: cartItemId
+      }
+    })
+
+    let quant = cartItem.quantity
+
+    if (req.body.change === 'inc') {
+      cartItem = await cartItem.update({
+        quantity: quant + 1
+      })
+      res.json(cartItem)
+    } else if (req.body.change === 'dec' && quant > 1) {
+      cartItem = await cartItem.update({
+        quantity: quant - 1
+      })
+      res.json(cartItem)
+    } else if (req.body.change === 'dec' && quant === 1) {
+      await Cart.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      res.sendStatus(204)
     }
   } catch (err) {
     next(err)
