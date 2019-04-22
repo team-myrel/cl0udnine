@@ -34,46 +34,62 @@ const changeQuant = (id, data) => ({
 })
 
 // thunk
-export const getCartThunk = () => {
-  return async dispatch => {
-    const {data} = await axios.get('/api/cart')
-    dispatch(getCartAction(data))
+export const getCartThunk = userId => {
+  if (userId) {
+    return async dispatch => {
+      const {data} = await axios.get(`/api/users/${userId}/cart`)
+      dispatch(getCartAction(data))
+    }
+  } else {
+    return async dispatch => {
+      const {data} = await axios.get('/api/cart')
+      dispatch(getCartAction(data))
+    }
   }
 }
 
-export const addToCartThunk = product => {
-  return async dispatch => {
-    try {
+export const addToCartThunk = (product, userId) => {
+  if (userId) {
+    return async dispatch => {
+      const {data} = await axios.put(`/api/users/${userId}/cart`, product)
+      dispatch(getCartAction(data))
+    }
+  } else {
+    return async dispatch => {
       const {data} = await axios.put('/api/cart', product)
       dispatch(addToCart(data))
-    } catch (err) {
-      throw err
     }
   }
 }
 
-export const deleteItemThunk = id => {
-  return async dispatch => {
-    try {
-      await axios.delete(`/api/cart/${id}`)
-      dispatch(deleteItem(id))
-    } catch (err) {
-      throw err
+export const deleteItemThunk = (itemId, userId) => {
+  if (userId) {
+    return async dispatch => {
+      await axios.delete(`/api/users/${userId}/cart/${itemId}`)
+      dispatch(deleteItem(itemId))
+    }
+  } else {
+    return async dispatch => {
+      await axios.delete(`/api/cart/${itemId}`)
+      dispatch(deleteItem(itemId))
     }
   }
 }
 
-export const changeQuantThunk = (id, change) => {
+export const changeQuantThunk = (itemId, change, userId) => {
   const bod = {
     change
   }
 
-  return async dispatch => {
-    try {
-      const {data} = await axios.put(`/api/cart/${id}`, bod)
-      dispatch(changeQuant(id, data))
-    } catch (err) {
-      throw err
+  if (userId) {
+    return async dispatch => {
+      const {data} = await axios.put(`/api/users/${userId}/cart/${itemId}`, bod)
+      dispatch(changeQuant(itemId, data))
+    }
+  } else {
+    return async dispatch => {
+      const {data} = await axios.put(`/api/cart/${itemId}`, bod)
+      dispatch(changeQuant(itemId, data))
     }
   }
 }

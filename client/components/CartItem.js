@@ -7,7 +7,7 @@ const CartItem = props => {
   const cartItem = props.cartItem
 
   if (!product) {
-    props.getCartThunk()
+    props.getCartThunk(props.user)
     return <div>Loading...</div>
   }
 

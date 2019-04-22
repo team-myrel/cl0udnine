@@ -14,6 +14,9 @@ const Item = require('./order/item')
 Cart.belongsTo(Product)
 Product.hasMany(Cart)
 
+Cart.belongsTo(User)
+User.hasMany(Cart)
+
 // order to user
 // Order.belongsTo(User, {through: 'UserOrder'})
 // User.belongsToMany(Order, {through: 'UserOrder'})
@@ -39,6 +42,12 @@ Order.hasMany(Item)
 
 Item.belongsTo(Product)
 Product.hasMany(Item)
+
+Cart.belongsTo(User)
+User.hasOne(Cart)
+
+Order.belongsTo(Cart)
+Cart.hasMany(Order)
 
 // Product.belongsToMany(User, {through: 'product_user'})
 // User.belongsToMany(Product, {through: 'product_user'})

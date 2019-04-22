@@ -15,25 +15,33 @@ class Cart extends Component {
   }
 
   componentDidMount() {
-    this.props.getCartThunk()
+    this.props.getCartThunk(this.props.user)
   }
 
   removeItem = product => {
-    this.props.deleteItemThunk(product)
+    this.props.deleteItemThunk(product, this.props.user)
   }
 
-  changeQuant = (id, change) => {
-    this.props.changeQuantThunk(id, change)
+  changeQuant = (itemId, change) => {
+    this.props.changeQuantThunk(itemId, change, this.props.user)
   }
 
   render() {
-    const { cart } = this.props
+    const {cart, user} = this.props
 
-    if (!cart.length) return <div id="container"><h1>Your Cart<br /></h1>No items in your cart.</div>
+    if (!cart.length)
+      return (
+        <div id="container">
+          <h1>
+            Your Cart<br />
+          </h1>No items in your cart.
+        </div>
+      )
 
     return (
       <div id="container">
-        <h1>Your Cart</h1><br />
+        <h1>Your Cart</h1>
+        <br />
         <h5>You have ordered:</h5>
         <ul>
           {cart.map(cartItem => (
@@ -43,6 +51,7 @@ class Cart extends Component {
               removeItem={this.removeItem}
               changeQuant={this.changeQuant}
               getCartThunk={this.props.getCartThunk}
+              user={user}
             />
           ))}
         </ul>
@@ -52,13 +61,15 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.Cart.cart
+  cart: state.Cart.cart,
+  user: state.Users.id
 })
 
 const mapDispatchToProps = dispatch => ({
-  getCartThunk: () => dispatch(getCartThunk()),
-  deleteItemThunk: id => dispatch(deleteItemThunk(id)),
-  changeQuantThunk: (id, change) => dispatch(changeQuantThunk(id, change))
+  getCartThunk: user => dispatch(getCartThunk(user)),
+  deleteItemThunk: (itemId, user) => dispatch(deleteItemThunk(itemId, user)),
+  changeQuantThunk: (itemId, change, user) =>
+    dispatch(changeQuantThunk(itemId, change, user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)
