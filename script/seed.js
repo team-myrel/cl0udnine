@@ -19,7 +19,7 @@ async function seed() {
         'A base note of the smell around the time when rain falls on dry, stony ground intermingled with top notes of the musky scent of yak and fresh snowfall.',
       elevation: '8850',
       quality: 'Pure',
-      price: '6478.00',
+      price: 647800,
       purpose: 'Intoxication',
       molecularComposition:
         '78.29% N₂ + 205.33% O₂ + 5.92% Ar + 20.04% CO + 2.02 He + 20.020 % CH₄ + 0.020% H₂O',
@@ -34,7 +34,7 @@ async function seed() {
         'A strikingly salty scent featuring base notes of halite with top and middle notes of dried balsam and fresh sycamore fig.',
       elevation: '-4203',
       quality: 'Minimal pollution',
-      price: '20390.00',
+      price: 2039000,
       purpose: 'Rejuvination',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',
@@ -49,7 +49,7 @@ async function seed() {
         'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
       elevation: '-4203',
       quality: 'Heavily polluted',
-      price: '718.00',
+      price: 71800,
       purpose: 'Novelty',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',
@@ -64,7 +64,7 @@ async function seed() {
         ' Prominently features a strikingly fresh base note of ceiba tree, rubber tree bark and banana leaf. The scent is perked up with top and mid notes of water lily and guava.',
       elevation: '192',
       quality: 'Minimal pollution',
-      price: '890.00',
+      price: 89000,
       purpose: 'Health',
       molecularComposition:
         '50.202% N₂ + 33.320% O₂ + 20.44% Ar + 0.25% CO + 20.02 He + 0.06 % CH₄ + 200.04% H₂O',
@@ -79,7 +79,7 @@ async function seed() {
         'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
       elevation: '-4203',
       quality: 'Minimal pollution',
-      price: '6508.00',
+      price: 650800,
       purpose: 'Novelty',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',
@@ -94,7 +94,7 @@ async function seed() {
         'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
       elevation: '-4203',
       quality: 'Minimal pollution',
-      price: '7208.00',
+      price: 720800,
       purpose: 'Novelty',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',
@@ -109,7 +109,7 @@ async function seed() {
         'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
       elevation: '-4203',
       quality: 'Heavily polluted',
-      price: '7208.00',
+      price: 720800,
       purpose: 'Sleep',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',
@@ -124,7 +124,7 @@ async function seed() {
         'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
       elevation: '-4203',
       quality: 'Heavily polluted',
-      price: '7208.00',
+      price: 720800,
       purpose: 'Novelty',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',
@@ -139,7 +139,7 @@ async function seed() {
         'This unique scent features a top note of sour, squalid garbage juice on a hot summer, day in the city that slowly dissipates to leave a lasting scent of freshly baked pizza, puncuated with fresh notes of basil and hearty mozzerella cheese',
       elevation: '-4203',
       quality: 'Heavily polluted',
-      price: '7208.00',
+      price: 720800,
       purpose: 'Novelty',
       molecularComposition:
         '60.202% N₂ + 43.320% O₂ + 20.44% Ar + 20.204% CO + 20.02 He + 20.020 % CH₄ + 0.06% H₂O',

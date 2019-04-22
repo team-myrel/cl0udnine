@@ -38,10 +38,13 @@ const Product = db.define('product', {
     }
   },
   price: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
       notEmpty: true
+    },
+    get() {
+      return this.getDataValue('price') / 100
     }
   },
   purpose: {
@@ -82,6 +85,5 @@ const Product = db.define('product', {
   //   }
   // }
 })
-
 
 module.exports = Product

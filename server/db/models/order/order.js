@@ -15,7 +15,7 @@ const Order = db.define('order', {
     }
   },
   total: {
-    type: Sequelize.FLOAT,
+    type: Sequelize.INTEGER,
     allowNull: false,
     defaultValue: 0,
     validate: {

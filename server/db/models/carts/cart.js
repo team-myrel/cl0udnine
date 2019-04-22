@@ -7,10 +7,7 @@ const Cart = db.define('cart', {
     default: 1
   },
   pricePerItem: {
-    type: Sequelize.DECIMAL(10, 2),
-    get() {
-      return parseFloat(this.getDataValue('pricePerItem'))
-    }
+    type: Sequelize.INTEGER
   },
   totalCost: {
     type: Sequelize.INTEGER
