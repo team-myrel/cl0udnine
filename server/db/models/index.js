@@ -40,6 +40,12 @@ Order.hasMany(Item)
 Item.belongsTo(Product)
 Product.hasMany(Item)
 
+Cart.belongsTo(User)
+User.hasOne(Cart)
+
+Order.belongsTo(Cart)
+Cart.hasMany(Order)
+
 // Product.belongsToMany(User, {through: 'product_user'})
 // User.belongsToMany(Product, {through: 'product_user'})
 

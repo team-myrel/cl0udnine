@@ -1,21 +1,40 @@
 import React, {Component} from 'react'
-import {Elements, StripeProvider} from 'react-stripe-elements'
-import CheckoutForm from './CheckoutForm'
+import {getCartThunk} from '../reducers/CartReducer'
+import {connect} from 'react-redux'
+import CartItem from './CartItem'
 
 class Checkout extends Component {
+
+  componentDidMount() {
+    this.props.getCartThunk()
+  }
   render() {
+    const {cart} = this.props
     return (
-      <h1>Let's Review your order!</h1>
-      // <StripeProvider apiKey="sk_test_LPYtVdZCR1sLCh2HHFFxc31100Cc9B5tLq">
-      //   <div className="example">
-      //     <h1>React Stripe Elements Example</h1>
-      //     <Elements>
-      //       <CheckoutForm />
-      //     </Elements>
-      //   </div>
-      // </StripeProvider>
+      <div>
+        <h1>Let's Review your order!</h1>
+        <ul>
+          {cart.map(cartItem => (
+            <CartItem
+              key={cartItem.id}
+              cartItem={cartItem}
+              removeItem={this.removeItem}
+              changeQuant={this.changeQuant}
+              getCartThunk={this.props.getCartThunk}
+            />
+          ))}
+        </ul>
+      </div>
     )
   }
 }
 
-export default Checkout
+const mapStateToProps = state => ({
+  cart: state.Cart.cart
+})
+
+const mapDispatchToProps = dispatch => ({
+  getCartThunk: () => dispatch(getCartThunk())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
