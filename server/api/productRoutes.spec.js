@@ -13,7 +13,6 @@ describe('Product routes', () => {
 
   describe('/api/products/', () => {
     const nycAir = {
-      id: 1,
       name: 'NYC Air',
       description:
         'When you miss the secondhand smoke, sidewalk pee, and perpetual garbage day',

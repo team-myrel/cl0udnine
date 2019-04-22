@@ -11,71 +11,73 @@ const AuthForm = props => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
+      <form onSubmit={handleSubmit} name={name} className="formStyle">
         {name === 'signup' && (
           <div>
             <div>
-              <label htmlFor="firstName">
+              <label htmlFor="firstName" className="label">
                 <small>First Name</small>
               </label>
-              <input name="firstName" type="text" />
+              <input name="firstName" type="text" className="input" />
             </div>
             <div>
-              <label htmlFor="lastName">
+              <label htmlFor="lastName" className="label">
                 <small>Last Name</small>
               </label>
-              <input name="lastName" type="text" />
+              <input name="lastName" type="text" className="input" />
             </div>
-            <div>
-              <label htmlFor="address">
+            {/* <div>
+              <label htmlFor="address" className="label">
                 <small>Address</small>
               </label>
-              <input name="address" type="text" />
+              <input name="address" type="text" className="input" />
             </div>
             <div>
-              <label htmlFor="city">
+              <label htmlFor="city" className="label">
                 <small>City</small>
               </label>
-              <input name="city" type="text" />
+              <input name="city" type="text" className="input" />
             </div>
             <div>
-              <label htmlFor="state">
+              <label htmlFor="state" className="label">
                 <small>State</small>
               </label>
-              <input name="state" type="text" />
+              <input name="state" type="text" className="input" />
             </div>
             <div>
-              <label htmlFor="country">
+              <label htmlFor="country" className="label">
                 <small>Country</small>
               </label>
-              <input name="country" type="text" />
-            </div>
-            <div>
-              <label htmlFor="zipCode">
+              <input name="country" type="text" className="input" />
+            </div> */}
+            {/* <div>
+              <label htmlFor="zipCode" className="label">
                 <small>Zip Code</small>
               </label>
-              <input name="zipCode" type="text" />
-            </div>
+              <input name="zipCode" type="text" className="input" />
+            </div> */}
           </div>
         )}
         <div>
-          <label htmlFor="email">
+          <label htmlFor="email" className="label">
             <small>Email</small>
           </label>
-          <input name="email" type="text" />
+          <input name="email" type="text" className="input" />
         </div>
         <div>
-          <label htmlFor="password">
+          <label htmlFor="password" className="label">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name="password" type="password" className="input" />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <button className="sendBtn" type="submit">
+            {displayName}
+          </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
+        <a href="/auth/google">{displayName} with Google</a>
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
 }

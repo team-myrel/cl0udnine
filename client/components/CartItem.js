@@ -9,7 +9,7 @@ const CartItem = props => {
   if (!product) return <div>Loading Item...</div>
 
   return (
-    <div>
+    <div id="cartItemDiv">
       <div>
         <Link to={`products/${product.id}`}>
           <img src={product.imgUrl} />
@@ -19,7 +19,7 @@ const CartItem = props => {
         <p>
           <Link to={`products/${product.id}`}>{product.name}</Link>
         </p>
-        <p>{product.price}</p>
+        <p>Price: {cartItem.totalCost}</p>
         <p>Quantity: {quantity}</p>
         <button
           type="button"

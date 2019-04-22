@@ -1,39 +1,40 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {getAllProducts} from '../reducers/ProductsReducer'
+import { connect } from 'react-redux'
+import { getAllProducts } from '../reducers/ProductsReducer'
 import Product from './Product'
-import {addToCartThunk} from '../reducers/CartReducer'
+import { addToCartThunk } from '../reducers/CartReducer'
 
 export class AllProducts extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
+    this.addToCart = this.addToCart.bind(this)
   }
 
   componentDidMount() {
     this.props.getAllProducts()
   }
 
-  handleClick = product => {
+  addToCart = product => {
     this.props.addToCartThunk(product)
   }
 
   render() {
-    const {loading} = this.props
+    const { loading } = this.props
 
     if (loading) return <div>Putting on Airs...</div>
     const allProducts = this.props.allProducts
     return (
-      <div>
-        <h2>Products</h2>
-        {allProducts.map(product => (
-          <Product
-            product={product}
-            key={product.id}
-            handleClick={this.handleClick}
-          />
-        ))}
-      </div>
+      <div id="main">
+        <div id="container">
+          <h2>Products</h2>
+          {allProducts.map(product => (
+            <Product
+              product={product}
+              key={product.id}
+              addToCart={this.addToCart}
+            />
+          ))}
+        </div></div>
     )
   }
 }
