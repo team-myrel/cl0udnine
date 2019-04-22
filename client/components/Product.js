@@ -1,20 +1,24 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Product = props => {
   const product = props.product
 
   return (
     <div>
+      <br />
+
+      <div id="productlink"><Link to={`products/${product.id}`}>{product.name}</Link></div><br />
       <Link to={`products/${product.id}`}>
         <img src={product.imgUrl} />
       </Link>
       <div>
-        <h4>
-          <Link to={`products/${product.id}`}>{product.name}</Link>
-        </h4>
+        <br />
+
+
+        <h1>Price: ${product.price}</h1>
         <button
-          type="button"
+          type="button" className="addBtn"
           onClick={() => {
             props.addToCart(product)
           }}
@@ -22,8 +26,9 @@ const Product = props => {
           Add to Cart
         </button>
       </div>
-      <h6>{product.price}</h6>
+      <br /><br /><hr />
     </div>
+
   )
 }
 

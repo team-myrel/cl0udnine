@@ -21,6 +21,7 @@ const App = () => {
         </StripeProvider>
       </div> */}
       <Routes />
+      <div id="footer"><br /><br />Proudly brought to you by Lisa, Lerena, Michaela, and Rashmi from GH-1902!</div>
     </div>
   )
 }
