@@ -14,6 +14,9 @@ const Item = require('./order/item')
 Cart.belongsTo(Product)
 Product.hasMany(Cart)
 
+Cart.belongsTo(User)
+User.hasMany(Cart)
+
 // order to user
 // Order.belongsTo(User, {through: 'UserOrder'})
 // User.belongsToMany(Order, {through: 'UserOrder'})
