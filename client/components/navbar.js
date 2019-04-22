@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { logout } from '../reducers/UserReducer'
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div id="nav">
+  <div>
     <nav>
       {isLoggedIn ? (
         <div>
@@ -28,7 +28,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           </div>
         )}
     </nav>
-    <hr />
     <div id="container">
       <div className="title">Welcome to Cloud 9</div></div>
   </div>

@@ -11,7 +11,7 @@ background-color: linear-gradient(#69618a, #032041);
 font-family: 'Roboto', sans-serif;
   letter-spacing: 3px;
   font-size: 16px;
-  border: 1px solid blue;
+  border: 0px solid blue;
   background-image: url("https://zdnet2.cbsistatic.com/hub/i/r/2012/11/26/278e55cc-1d11-11e4-8c7f-00505685119a/thumbnail/770x578/d7ee420bbcc0785819eb1f6950790483/cloud-horizon.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -55,8 +55,10 @@ main {
     opacity: 0.8;
 		width: 944px;
     margin: 50px auto 0 auto;
+    padding: 10px;
     border: 1px solid white;
     border-radius: 25px;
+    /* min-height:800px; */
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -105,31 +107,43 @@ nav a:hover{
 
 
 .title{
-  /* background:lightblue; */
-  width: 100%;
+  background:lightblue;
+  width: 102%;
   font-size: 100px;
   letter-spacing: -6px;
   text-align: center;
   font-family: 'Playfair Display';
-text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+  font-style: italic;
+  text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
   /* box-shadow: 10px 10px black; */
-margin: 0 0 50px 0;
+margin: -10px -10px -10px -10px;
+/* padding-right: 50px; */
+    border-radius: 25px;
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .title:hover{
-  /* background:lightblue; */
-  width: 100%;
-  color: #4BD6FF;
-transition: cubic-bezier(0.785, 0.135, 0.15, 0.86);
-transition: 0.8s;
+  background:#4BD6FF;
+  color:white;
+  transition: 0.8s;
+  width: 102%;
   font-size: 100px;
   letter-spacing: -6px;
   text-align: center;
   font-family: 'Playfair Display';
-text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+  font-style: italic;
+  text-shadow: 4px 3px 0px #000000, 9px 8px 0px rgba(0,0,0,0.15);
   /* box-shadow: 10px 10px black; */
-margin: 0 0 50px 0;
+margin: -10px -10px -10px -10px;
+/* padding-right: 50px; */
+    border-radius: 25px;
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
+
 
 
 
@@ -141,13 +155,16 @@ margin: 0 0 50px 0;
   border: 1px solid red;
 } */
 
-.formStyle {
+#container .formStyle {
   width: 280px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
+  align-items: center;
+  display: inline-block;
+
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /* color: white; */
 }
 
 small {
@@ -174,7 +191,7 @@ small {
 }
 .sendBtn {
   width: 100%;
-  background: none;
+  background: navy;
   border: 2px solid rgb(131, 151, 196);
   color: white;
   padding: 5px;
@@ -195,16 +212,19 @@ small {
 nav img{
 box-shadow: 0px 0px black;
 border-radius: 0%;
-width: 30px;
-height: 30px;
+width: 11px;
+height: 11px;
+-webkit-filter: invert(100%); /* Safari 6.0 - 9.0 */
+  filter: invert(100%);
 }
 
 nav img:hover{
 box-shadow: 0px 0px black;
 border-radius: 0%;
-width: 40px;
-height: 40px;
+width: 11px;
+height: 11px;
 }
+
 
 img{
 box-shadow: 10px 10px black;

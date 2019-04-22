@@ -53,7 +53,7 @@ const Product = db.define('product', {
   },
   imgUrl: {
     type: Sequelize.STRING,
-    defaultValue: 'https://www.watertechonline.com/wp-content/uploads/2015/11/iStock_000004135118_800x533.jpg',
+    defaultValue: 'https://i.imgur.com/BKW61LH.jpg',
     allowNull: false,
     validate: {
       notEmpty: true

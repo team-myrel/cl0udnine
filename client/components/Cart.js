@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {getCartThunk, deleteItemThunk} from '../reducers/CartReducer'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getCartThunk, deleteItemThunk } from '../reducers/CartReducer'
 import CartItem from './CartItem'
 
 class Cart extends Component {
@@ -18,12 +18,13 @@ class Cart extends Component {
   }
 
   render() {
-    const {cart} = this.props
+    const { cart } = this.props
 
-    if (!cart.length) return <div>No items in your cart.</div>
+    if (!cart.length) return <div id="container"><h1>Your Cart<br /></h1>No items in your cart.</div>
 
     return (
-      <div>
+      <div id="container">
+        <h1>Your Cart</h1><br />
         <h5>You have ordered:</h5>
         <ul>
           {cart.map(cartItem => (

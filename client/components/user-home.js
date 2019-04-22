@@ -1,19 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {firstName, id} = props
+  const { firstName, id } = props
   return (
-    <div>
-      <h3>Welcome back, {firstName}!</h3>
+    <div id="container">
+      <h3>Welcome back, {firstName}!</h3><br />
+      <p>Thank you for shopping with Cloud9.</p><br /><br />
       <Link to={`/orders/${id}`}>
-      Here's what you ordered!
-      </Link>
+        Click here to see your previous order.
+      </Link><br /><br />
     </div>
   )
 }
