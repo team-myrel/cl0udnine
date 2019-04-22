@@ -4,24 +4,6 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../reducers/UserReducer'
 
-<<<<<<< HEAD
-const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div id="nav">
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link> |
-          <Link to="/products">Products</Link> |
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          <Link to="/cart">
-            <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
-          </Link>
-        </div>
-      ) : (
-=======
 const Navbar = ({handleClick, isLoggedIn, userId}) => {
   return (
     <div id="nav">
@@ -39,7 +21,6 @@ const Navbar = ({handleClick, isLoggedIn, userId}) => {
             </a>
           </div>
         ) : (
->>>>>>> 4fbc54f05c17e54dd956ec41db6426331d478338
           <div>
             {/* The navbar will show these links before you log in */}
             <Link to="/products">Products</Link> |
