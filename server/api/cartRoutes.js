@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const {Cart, Product} = require('../db/models')
-const Sequelize = require('sequelize')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -26,8 +25,10 @@ router.put('/', async (req, res, next) => {
 
     if (cartItem && stock > 1) {
       let quant = cartItem.quantity
+      let total = cartItem.totalCost
       cartItem = await cartItem.update({
-        quantity: quant + 1
+        quantity: quant + 1,
+        totalCost: total + price
       })
       res.json(cartItem)
     } else if (stock > 1) {
@@ -35,7 +36,6 @@ router.put('/', async (req, res, next) => {
         await Cart.create({
           quantity: 1,
           pricePerItem: price,
-          totalCost: price,
           productId: id
         })
       )
