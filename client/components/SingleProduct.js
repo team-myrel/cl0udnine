@@ -21,16 +21,16 @@ class SingleProduct extends Component {
     const product = this.props.selectedProduct
     return <div id="container">
       <img src={product.imgUrl} />
-      <h3><b>Name:</b> {product.name} </h3>
-      <p> <b>Description:</b> {product.description} </p>
-      <p><b>Scent:</b>/ {product.scent} </p>
-      <p><b>Elevation:</b> {product.elevation} </p>
-      <h5><b>Quality:</b> {product.quality} </h5>
-      <p><b>Benefits:</b> {product.benefits} </p>
-      <p><b>Molecular Composition:</b> {product.molecularComposition} </p>
-      <h1>Price Per Unit: {product.price} </h1>
+      <h3> {product.name} </h3><hr />
+      <p> <b>Description:</b> {product.description} </p><hr />
+      <p><b>Scent:</b> {product.scent} </p><hr />
+      <p><b>Elevation:</b> {product.elevation} meters</p><hr />
+      <p><b>Quality:</b> {product.quality} </p><hr />
+      <p><b>Benefits:</b> {product.benefits} </p><hr />
+      <p><b>Molecular Composition:</b> {product.molecularComposition} </p><hr />
+      <h1>Price Per Unit: ${product.price} </h1>
       <div>
-        <button type="button" onClick={() => {
+        <button type="button" className="addBtn" onClick={() => {
           this.handleClick(product)
         }}>
           Add to Cart
