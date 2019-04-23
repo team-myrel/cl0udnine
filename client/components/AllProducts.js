@@ -4,6 +4,7 @@ import {getAllProducts} from '../reducers/ProductsReducer'
 import Product from './Product'
 import {addToCartThunk} from '../reducers/CartReducer'
 
+
 export class AllProducts extends React.Component {
   constructor(props) {
     super(props)
