@@ -8,20 +8,7 @@ const Cart = db.define('cart', {
   },
   pricePerItem: {
     type: Sequelize.INTEGER
-  },
-  totalCost: {
-    type: Sequelize.INTEGER
   }
-})
-
-Cart.beforeSave(instance => {
-  instance.totalCost = instance.quantity * instance.pricePerItem
-  parseFloat(instance.totalCost)
-})
-
-Cart.beforeUpdate(instance => {
-  instance.totalCost = instance.quantity * instance.pricePerItem
-  parseFloat(instance.totalCost)
 })
 
 module.exports = Cart
