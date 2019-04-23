@@ -1,17 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Confirm from './Confirm'
+import {Popover, OverlayTrigger} from 'react-bootstrap'
 
 class Product extends React.Component {
-  state = {select: 'open'}
-  // handleSubmit = alert('Submitted')
-
-  handleStatusChange = event => {
-    this.setState({select: event.target.value})
+  constructor(props) {
+    super(props)
   }
 
   render() {
     const product = this.props.product
+    const popover = (
+      <Popover id="popover-basic" title="Added To Cart">
+        Keep breathing, Great Choice!
+      </Popover>
+    )
     return (
       <div>
         <br />
@@ -24,33 +26,17 @@ class Product extends React.Component {
         </Link>
         <br />
         <h1>Price: ${product.price}</h1>
-        <Confirm title="Added to Cart" description="Good Choice!">
-          {confirm => (
-            <form onSubmit={confirm(this.handleSubmit)}>
-              <label>
-                Status:
-                <select
-                  value={this.state.select}
-                  onChange={confirm(this.handleStatusChange)}
-                >
-                  <option value="open">Open</option>
-                  <option value="close">Close</option>
-                </select>
-              </label>
-              <button
-                type="button"
-                className="addBtn"
-                onClick={() => {
-                  this.props.addToCart(product)
-                  confirm(this.handleStatusChange)
-                }}
-                onChange={confirm(this.handleStatusChange)}
-              >
-                Add to Cart
-              </button>
-            </form>
-          )}
-        </Confirm>
+        <OverlayTrigger trigger="click" placement="auto" overlay={popover}>
+          <button
+            type="button"
+            className="addBtn"
+            onClick={() => {
+              this.props.addToCart(product)
+            }}
+          >
+            Add to Cart
+          </button>
+        </OverlayTrigger>
         <br />
         <br />
         <hr />
