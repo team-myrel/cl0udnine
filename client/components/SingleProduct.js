@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { getProduct } from '../reducers/ProductsReducer'
-import { addToCartThunk } from '../reducers/CartReducer'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {getProduct} from '../reducers/ProductsReducer'
+import {addToCartThunk} from '../reducers/CartReducer'
 
 class SingleProduct extends Component {
   constructor(props) {
@@ -19,24 +19,50 @@ class SingleProduct extends Component {
 
   render() {
     const product = this.props.selectedProduct
-    return <div id="container">
-      <heading> {product.name} </heading>
-      <img src={product.imgUrl} />
-      <p> <b>Description:</b> {product.description} </p><hr />
-      <p><b>Scent:</b> {product.scent} </p><hr />
-      <p><b>Elevation:</b> {product.elevation} meters</p><hr />
-      <p><b>Quality:</b> {product.quality} </p><hr />
-      <p><b>Purpose:</b> {product.purpose} </p><hr />
-      <p><b>Molecular Composition:</b> {product.molecularComposition} </p><hr />
-      <h1>Price Per Unit: ${product.price} </h1>
-      <div>
-        <button type="button" className="addBtn" onClick={() => {
-          this.handleClick(product)
-        }}>add to cart</button>
-
+    return (
+      <div id="container">
+        <h1> {product.name} </h1>
+        <img src={product.imgUrl} />
+        <p>
+          {' '}
+          <b>Description:</b> {product.description}{' '}
+        </p>
+        <hr />
+        <p>
+          <b>Scent:</b> {product.scent}{' '}
+        </p>
+        <hr />
+        <p>
+          <b>Elevation:</b> {product.elevation} meters
+        </p>
+        <hr />
+        <p>
+          <b>Quality:</b> {product.quality}{' '}
+        </p>
+        <hr />
+        <p>
+          <b>Purpose:</b> {product.purpose}{' '}
+        </p>
+        <hr />
+        <p>
+          <b>Molecular Composition:</b> {product.molecularComposition}{' '}
+        </p>
+        <hr />
+        <h1>Price Per Unit: ${product.price} </h1>
+        <div>
+          <button
+            type="button"
+            className="addBtn"
+            onClick={() => {
+              this.handleClick(product)
+            }}
+          >
+            add to cart
+          </button>
+        </div>
+        <br />
       </div>
-      <br />
-    </div >
+    )
   }
 }
 const mapStateToProps = state => {

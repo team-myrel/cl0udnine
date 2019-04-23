@@ -1,23 +1,25 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import { auth } from '../reducers/UserReducer'
+import {auth} from '../reducers/UserReducer'
 
 /**
  * COMPONENT
  */
 const AuthForm = props => {
-  const { name, displayName, handleSubmit, error } = props
+  const {name, displayName, handleSubmit, error} = props
 
   return (
     <div id="container">
-      <heading>Welcome</heading>
-      <div >
+      <h1>Welcome</h1>
+      <div>
         <form onSubmit={handleSubmit} name={name} className="formStyle">
           {name === 'signup' && (
             <div>
               <div>
-                <h1>Sign up here! <br /></h1>
+                <h1>
+                  Sign up here! <br />
+                </h1>
                 <label htmlFor="firstName" className="label">
                   <small>First Name</small>
                 </label>
@@ -63,7 +65,10 @@ const AuthForm = props => {
           )}
           <div>
             {name === 'login' && (
-              <h1>Log in here! <br /></h1>)}
+              <h1>
+                Log in here! <br />
+              </h1>
+            )}
             <label htmlFor="email" className="label">
               <small>Email</small>
             </label>

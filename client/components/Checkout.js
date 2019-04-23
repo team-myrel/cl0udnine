@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { getCartThunk } from '../reducers/CartReducer'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {getCartThunk} from '../reducers/CartReducer'
+import {connect} from 'react-redux'
 import CartItem from './CartItem'
 import Stripe from './Stripe'
-import { createOrderThunk } from '../reducers/OrderReducer'
+import {createOrderThunk} from '../reducers/OrderReducer'
 
 class Checkout extends Component {
   constructor() {
@@ -39,16 +39,11 @@ class Checkout extends Component {
   }
 
   render() {
-<<<<<<< HEAD
     const {cart} = this.props
 
-=======
-    const { cart } = this.props
-    console.log('props', this.props)
->>>>>>> master
     return (
       <div id="container">
-        <heading>Checkout</heading>
+        <h1>Checkout</h1>
         <h1>Let's Review your order!</h1>
         <ul>
           {cart.map(cartItem => (
@@ -73,7 +68,8 @@ class Checkout extends Component {
           Place Order
         </button>
         <Stripe amount={this.props.subtotal} onSubmit={this.handleSubmit} />
-        <br /><br />
+        <br />
+        <br />
       </div>
     )
   }
