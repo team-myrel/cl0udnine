@@ -3,7 +3,7 @@ import { getCartThunk } from '../reducers/CartReducer'
 import { connect } from 'react-redux'
 import CartItem from './CartItem'
 import Stripe from './Stripe'
-import {createOrderThunk} from '../reducers/OrderReducer'
+import { createOrderThunk } from '../reducers/OrderReducer'
 
 class Checkout extends Component {
   constructor() {
@@ -24,12 +24,8 @@ class Checkout extends Component {
     this.props.getCartThunk(this.props.user)
   }
   render() {
-<<<<<<< HEAD
     const { cart } = this.props
-=======
-    const {cart} = this.props
     console.log('props', this.props)
->>>>>>> 524a84b31c17eff81dce17b0ae4313afebe208a4
     return (
       <div id="container">
         <heading>Checkout</heading>

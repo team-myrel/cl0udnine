@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {Popover, OverlayTrigger} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Popover, OverlayTrigger } from 'react-bootstrap'
 
 class Product extends React.Component {
   constructor(props) {
@@ -26,14 +26,6 @@ class Product extends React.Component {
         </Link>
         <br />
         <h1>Price: ${product.price}</h1>
-<<<<<<< HEAD
-        <button
-          type="button" className="addBtn"
-          onClick={() => {
-            props.addToCart(product)
-          }}>Add to Cart</button>
-
-=======
         <OverlayTrigger trigger="click" placement="auto" overlay={popover}>
           <button
             type="button"
@@ -48,7 +40,6 @@ class Product extends React.Component {
         <br />
         <br />
         <hr />
->>>>>>> 524a84b31c17eff81dce17b0ae4313afebe208a4
       </div>
     )
   }
