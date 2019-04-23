@@ -37,6 +37,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
     "express": "^4.16.4",
@@ -46,6 +47,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
     "npm": "^6.9.0",
+    "nprogress": "^0.2.0",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
     "pg": "^7.9.0",

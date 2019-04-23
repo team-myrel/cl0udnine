@@ -5,7 +5,7 @@ class Splash extends Component {
   render() {
     return (
       <div id="container">
-        <h1>Welcome to Cloud 9 </h1>
+        <heading>Welcome to Cloud 9 </heading>
         <div className="carousel-wrapper">
           <span id="item-1" />
           <span id="item-2" />

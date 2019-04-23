@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {Popover, OverlayTrigger} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Popover, OverlayTrigger } from 'react-bootstrap'
 
 class Product extends React.Component {
   constructor(props) {
