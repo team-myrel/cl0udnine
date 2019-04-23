@@ -16,7 +16,7 @@ export default class Stripe extends React.Component {
     return (
       <StripeCheckout
         token={this.onToken}
-        stripeKey="sk_test_LPYtVdZCR1sLCh2HHFFxc31100Cc9B5tLq"
+        stripeKey="pk_test_rj9Rxn5NnQAQDFQncPXCyMHB00kom9TRhL"
         amount={charge}
       />
     )
