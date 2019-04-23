@@ -11,6 +11,7 @@ export const UserHome = props => {
   const {email} = props
   return (
     <div id="container">
+      <heading>Your User Page</heading>
       <h3>Welcome back, {email}!</h3>
       <Splash />
       <p>Thank you for shopping with Cloud9.</p>

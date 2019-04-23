@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const CartItem = props => {
   const product = props.cartItem.product
@@ -15,8 +15,8 @@ const CartItem = props => {
     <div id="cartItemDiv">
       <div>
         <Link to={`products/${product.id}`}>
-          <img src={product.imgUrl} />
-        </Link>
+          <img src={product.imgUrl} width='100px' />
+        </Link><br />
       </div>
       <div>
         <p>
@@ -24,7 +24,7 @@ const CartItem = props => {
         </p>
         <div id="priceQuantDiv">
           <div id="priceDiv">
-            <p>Price: ${cartItem.totalCost}</p>
+            <p>Price: ${cartItem.pricePerItem * cartItem.quantity}</p>
           </div>
           <div>
             <p>Quantity: {quantity}</p>

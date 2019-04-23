@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../reducers/UserReducer'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { logout } from '../reducers/UserReducer'
 
-const Navbar = ({handleClick, isLoggedIn, userId}) => {
+const Navbar = ({ handleClick, isLoggedIn, userId }) => {
   return (
     <div id="nav">
       <nav>
@@ -15,28 +15,28 @@ const Navbar = ({handleClick, isLoggedIn, userId}) => {
             <Link to="/products">Products</Link>
             <Link to={`/${userId}/cart`}>
               <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
-            </Link>
-            <Link to="/checkout">Checkout</Link>
+            </Link> |
+            <Link to={`/${userId}/checkout`}>Checkout</Link>
             <a href="#" onClick={handleClick}>
               Logout
             </a>
           </div>
         ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/products">Products</Link> |
+            <div>
+              {/* The navbar will show these links before you log in */}
+              <Link to="/products">Products</Link> |
             <Link to="/login">Login</Link> |
             <Link to="/signup">Sign Up</Link> |
             <Link to="/cart">
-              <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
-            </Link>
-            <Link to="/checkout">Checkout</Link>
-          </div>
-        )}
+                <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
+              </Link> |
+              <Link to="/checkout">Checkout</Link>
+            </div>
+          )}
       </nav>
-      <div id="container">
-        <div className="title">Welcome to Cloud 9</div>
-      </div>
+
+      <div className="title"><img src="https://i.imgur.com/6vtsnVs.png"></img><br />Cl0ud Nine</div>
+
     </div>
   )
 }
