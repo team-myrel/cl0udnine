@@ -21,10 +21,8 @@ const Product = props => {
           type="button" className="addBtn"
           onClick={() => {
             props.addToCart(product)
-          }}
-        >
-          Add to Cart
-        </button>
+          }}>add to cart!!!!!!!!!!</button>
+
       </div>
       <br /><br /><hr />
     </div>

@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {getCartThunk} from '../reducers/CartReducer'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
+import { getCartThunk } from '../reducers/CartReducer'
+import { connect } from 'react-redux'
 import CartItem from './CartItem'
 import Stripe from './Stripe'
 
@@ -23,9 +23,9 @@ class Checkout extends Component {
     this.props.getCartThunk()
   }
   render() {
-    const {cart} = this.props
+    const { cart } = this.props
     return (
-      <div>
+      <div id="container">
         <h1>Let's Review your order!</h1>
         <ul>
           {cart.map(cartItem => (
@@ -44,6 +44,7 @@ class Checkout extends Component {
           }, 0)}
         </h3>
         <Stripe amount={this.props.subtotal} onSubmit={this.handleSubmit} />
+        <br /><br />
       </div>
     )
   }
