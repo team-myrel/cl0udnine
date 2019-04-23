@@ -16,7 +16,7 @@ router.get('/:userId', isUser, async (req, res, next) => {
   }
 })
 
-router.get('/:userId/singleOrder/:orderId', async (req, res, next) => {
+router.get('/:userId/singleOrder/:orderId', isUser, async (req, res, next) => {
   try {
     const order = await Order.findByPk(req.params.orderId, {
       include: [{model: Item, include: {model: Product}}]
