@@ -18,14 +18,34 @@ class Checkout extends Component {
     }
     // this.handleChange = this.handleChange.bind(this)
     // this.handleSubmit = this.handleSubmit.bind(this)
+    this.checkoutComplete = this.checkoutComplete.bind(this)
   }
 
   componentDidMount() {
     this.props.getCartThunk(this.props.user)
   }
+
+  // componentDidUpdate(prevProps) {
+  //   console.log('prevProps', prevProps)
+  //   console.log('this.props.order', this.props.order)
+
+  //   if (this.props.order !== prevProps.order) {
+  //     this.checkoutComplete()
+  //   }
+  // }
+
+  checkoutComplete() {
+    return <div>Order Complete! Order #: {this.props.order}</div>
+  }
+
   render() {
+<<<<<<< HEAD
+    const {cart} = this.props
+
+=======
     const { cart } = this.props
     console.log('props', this.props)
+>>>>>>> master
     return (
       <div id="container">
         <heading>Checkout</heading>
@@ -61,7 +81,8 @@ class Checkout extends Component {
 
 const mapStateToProps = state => ({
   cart: state.Cart.cart,
-  user: state.Users.id
+  user: state.Users.id,
+  order: state.Order.order[0]
 })
 
 const mapDispatchToProps = dispatch => ({

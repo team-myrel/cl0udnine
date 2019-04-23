@@ -22,6 +22,12 @@ export const createOrderThunk = userId => {
       const order = req.data
       dispatch(createOrderAction(order))
     }
+  } else {
+    return async dispatch => {
+      const req = await axios.put('/api/checkout')
+      const order = req.data
+      dispatch(createOrderAction(order))
+    }
   }
 }
 
