@@ -38,7 +38,11 @@ class Checkout extends Component {
             />
           ))}
         </ul>
-        <h3>Subtotal: ${this.props.subtotal}</h3>
+        <h3>
+          Subtotal: ${this.props.cart.reduce((acc, curr) => {
+            return (acc += curr.quantity * curr.pricePerItem)
+          }, 0)}
+        </h3>
         <Stripe amount={this.props.subtotal} onSubmit={this.handleSubmit} />
       </div>
     )
