@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const User = require('../db/models/users/user')
 const jwt = require('jsonwebtoken')
+const SECRET = 'shhhh'
 module.exports = router
 
 router.post('/login', async (req, res, next) => {
@@ -14,12 +15,14 @@ router.post('/login', async (req, res, next) => {
       res.status(401).send('Wrong username and/or password')
     } else {
       req.login(user, err => (err ? next(err) : res.json(user)))
-      
-      jwt.sign({user}, 'secretkey', (err, token) => {
-        res.json({
-          token
-        });
-      });
+
+      const token = jwt.sign({user}, SECRET)
+
+      res.cookie('access_token', token, {
+        maxAge: 3600,
+        httpOnly: true
+        // secure: true
+      })
     }
   } catch (err) {
     next(err)
