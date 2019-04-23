@@ -24,7 +24,7 @@ const CartItem = props => {
         </p>
         <div id="priceQuantDiv">
           <div id="priceDiv">
-            <p>Price: ${cartItem.totalCost}</p>
+            <p>Price: ${cartItem.pricePerItem * cartItem.quantity}</p>
           </div>
           <div>
             <p>Quantity: {quantity}</p>

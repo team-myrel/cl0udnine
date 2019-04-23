@@ -3,6 +3,7 @@ import {getCartThunk} from '../reducers/CartReducer'
 import {connect} from 'react-redux'
 import CartItem from './CartItem'
 import Stripe from './Stripe'
+import {createOrderThunk} from '../reducers/OrderReducer'
 
 class Checkout extends Component {
   constructor() {
@@ -20,10 +21,11 @@ class Checkout extends Component {
   }
 
   componentDidMount() {
-    this.props.getCartThunk()
+    this.props.getCartThunk(this.props.user)
   }
   render() {
     const {cart} = this.props
+    console.log('props', this.props)
     return (
       <div>
         <h1>Let's Review your order!</h1>
@@ -43,6 +45,12 @@ class Checkout extends Component {
             return (acc += curr.quantity * curr.pricePerItem)
           }, 0)}
         </h3>
+        <button
+          type="button"
+          onClick={() => this.props.createOrderThunk(this.props.user)}
+        >
+          Place Order
+        </button>
         <Stripe amount={this.props.subtotal} onSubmit={this.handleSubmit} />
       </div>
     )
@@ -50,11 +58,13 @@ class Checkout extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.Cart.cart
+  cart: state.Cart.cart,
+  user: state.Users.id
 })
 
 const mapDispatchToProps = dispatch => ({
-  getCartThunk: () => dispatch(getCartThunk())
+  getCartThunk: user => dispatch(getCartThunk(user)),
+  createOrderThunk: user => dispatch(createOrderThunk(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
