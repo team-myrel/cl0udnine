@@ -11,6 +11,7 @@ const AuthForm = props => {
 
   return (
     <div id="container">
+      <heading>Welcome</heading>
       <div >
         <form onSubmit={handleSubmit} name={name} className="formStyle">
           {name === 'signup' && (

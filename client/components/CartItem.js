@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const CartItem = props => {
   const product = props.cartItem.product
@@ -15,8 +15,8 @@ const CartItem = props => {
     <div id="cartItemDiv">
       <div>
         <Link to={`products/${product.id}`}>
-          <img src={product.imgUrl} />
-        </Link>
+          <img src={product.imgUrl} width='100px' />
+        </Link><br />
       </div>
       <div>
         <p>
