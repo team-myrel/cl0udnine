@@ -15,7 +15,7 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => {
             <Link to="/products">Products</Link>
             <Link to={`/${userId}/cart`}>
               <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
-            </Link>
+            </Link> |
             <Link to="/checkout">Checkout</Link>
             <a href="#" onClick={handleClick}>
               Logout
@@ -29,14 +29,14 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => {
             <Link to="/signup">Sign Up</Link> |
             <Link to="/cart">
                 <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
-              </Link>
+              </Link> |
               <Link to="/checkout">Checkout</Link>
             </div>
           )}
       </nav>
-      <div id="container">
-        <div className="title">Cl0ud Nine</div>
-      </div>
+
+      <div className="title"><img src="https://i.imgur.com/6vtsnVs.png"></img><br />Cl0ud Nine</div>
+
     </div>
   )
 }

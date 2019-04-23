@@ -20,8 +20,8 @@ class SingleProduct extends Component {
   render() {
     const product = this.props.selectedProduct
     return <div id="container">
+      <heading> {product.name} </heading>
       <img src={product.imgUrl} />
-      <h3> {product.name} </h3><hr />
       <p> <b>Description:</b> {product.description} </p><hr />
       <p><b>Scent:</b> {product.scent} </p><hr />
       <p><b>Elevation:</b> {product.elevation} meters</p><hr />

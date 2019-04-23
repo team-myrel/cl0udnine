@@ -3,7 +3,7 @@ import React from 'react'
 
 const Page404 = ({ location }) => (
   <div id="container">
-    <h1>404<br /><br />Head in the clouds?</h1> <br /><br /><p>No match found for <code>{location.pathname}</code>. Bummer.<br /><br /></p>
+    <heading>404</heading><br /><br /><h1>Head in the clouds?</h1> <br /><br /><p>No match found for <code>{location.pathname}</code>. Bummer.<br /><br /></p>
   </div>
 
 )

@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email, id} = props
+  const { email, id } = props
   return (
     <div id="container">
+      <heading>Your User Page</heading>
       <h3>Welcome back, {email}!</h3>
       <br />
       <p>Thank you for shopping with Cloud9.</p>

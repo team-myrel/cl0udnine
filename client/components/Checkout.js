@@ -26,6 +26,7 @@ class Checkout extends Component {
     const { cart } = this.props
     return (
       <div id="container">
+        <heading>Checkout</heading>
         <h1>Let's Review your order!</h1>
         <ul>
           {cart.map(cartItem => (
