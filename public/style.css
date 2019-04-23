@@ -99,6 +99,14 @@ main {
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 	}
 
+
+#container p{
+   text-shadow: 1px 1px white;
+}
+
+
+
+
 nav {
   align-items: center;
   border: 1px solid transparent;
@@ -153,10 +161,12 @@ nav a:hover{
   background:lightblue;
   width: 102%;
   font-size: 100px;
-  letter-spacing: -6px;
+  font-weight: bold;
+  letter-spacing: -8px;
   text-align: center;
-  font-family: 'Playfair Display';
-  font-style: italic;
+  font-family: helvetica;
+    /* font-family: 'Playfair Display'; */
+  /* font-style: italic; */
   text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
   /* box-shadow: 10px 10px black; */
 margin: -10px -10px -10px -10px;
@@ -232,7 +242,20 @@ small {
 
 
 }
-.sendBtn {
+.sendBtn:after {
+  width: 100%;
+  background: navy;
+  border: 2px solid rgb(131, 151, 196);
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 12px 0;
+
+}
+
+.sendBtn:after {
+  content:"Added!";
   width: 100%;
   background: navy;
   border: 2px solid rgb(131, 151, 196);
@@ -246,19 +269,27 @@ small {
 
 .addBtn {
   width: 50%;
+  /* content:"Add to cart!"; */
   background: navy;
+    /* background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%); */
   border: 2px solid rgb(131, 151, 196);
   color: white;
   padding: 5px;
   font-size: 18px;
   cursor: pointer;
   margin: 12px 0;
+    /* position: absolute;
+  visibility: hidden; */
 
 }
 
+
+
 .addBtn:hover {
   width: 50%;
-  background:cornflowerblue;
+  /* content:"Add to cart?"; */
+  background: cornflowerblue;
+  /* background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%); */
   border: 2px solid rgb(131, 151, 196);
   color: white;
   padding: 5px;
@@ -268,6 +299,43 @@ small {
   transition: 0.8s;
 
 }
+
+.addBtn:after {
+  content:"Clicked";
+  width: 50%;
+  background: navy;
+  border: 2px solid rgb(131, 151, 196);
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 12px 0;
+}
+
+
+
+
+
+#nprogress .bar {
+  height:6px;
+}
+
+/* #container {
+  padding:40px;
+  background-color:grey;
+  color:white;
+} */
+
+#nprogress .bar {
+  background: purple;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: blue;
+  border-left-color: blue;
+}
+
+
 
 #productlink{
   position: relative;

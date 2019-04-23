@@ -26,15 +26,13 @@ class SingleProduct extends Component {
       <p><b>Scent:</b> {product.scent} </p><hr />
       <p><b>Elevation:</b> {product.elevation} meters</p><hr />
       <p><b>Quality:</b> {product.quality} </p><hr />
-      <p><b>Benefits:</b> {product.benefits} </p><hr />
+      <p><b>Purpose:</b> {product.purpose} </p><hr />
       <p><b>Molecular Composition:</b> {product.molecularComposition} </p><hr />
       <h1>Price Per Unit: ${product.price} </h1>
       <div>
         <button type="button" className="addBtn" onClick={() => {
           this.handleClick(product)
-        }}>
-          Add to Cart
-          </button>
+        }}>add to cart</button>
 
       </div>
       <br />

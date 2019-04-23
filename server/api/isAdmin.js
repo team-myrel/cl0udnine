@@ -1,4 +1,4 @@
-const admin = (req, res, next) => {
+const isAdmin = (req, res, next) => {
   if (!req.user.isAdmin) {
     const err = new Error('Access denied')
     err.status = 401
@@ -8,4 +8,4 @@ const admin = (req, res, next) => {
   }
 }
 
-module.exports = admin
+module.exports = isAdmin
