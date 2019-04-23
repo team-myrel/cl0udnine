@@ -48,12 +48,16 @@ class Routes extends Component {
             <Route exact path="/products" component={AllProducts} />
             <Route exact path="/products/:id" component={SingleProduct} />
             <Route exact path="/:userId/cart" component={Cart} />
+<<<<<<< HEAD
             <Route exact path="*" component={Page404} />
             <Route path="/api/products" component={Page404} />
             <Route exact path="/api/users" component={Page404} />
             <Route exact path="/api/users/*" component={Page404} />
             <Route exact path="/api/*" component={Page404} />
             <Route exact path="/api" component={Page404} />
+=======
+            <Route exact path="/:userId/checkout" component={Checkout} />
+>>>>>>> 524a84b31c17eff81dce17b0ae4313afebe208a4
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
