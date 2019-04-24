@@ -52,7 +52,7 @@ router.get('/:userId/cart', async (req, res, next) => {
 router.put('/:userId/checkout', async (req, res, next) => {
   try {
     let cart = await Cart.findAll({
-      include: [{model: Product}],
+      include: [{ model: Product }],
       where: {
         userId: req.params.userId,
         orderId: null
@@ -69,8 +69,8 @@ router.put('/:userId/checkout', async (req, res, next) => {
     })
 
     cart = await Cart.update(
-      {orderId: newOrder.id},
-      {where: {userId: req.params.userId, orderId: null}}
+      { orderId: newOrder.id },
+      { where: { userId: req.params.userId, orderId: null } }
     )
 
     res.send(cart)

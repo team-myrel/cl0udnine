@@ -11,12 +11,12 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => {
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
-            <Link to="/products">Products</Link>
+            <Link to="/home">Home</Link> |
+            <Link to="/products">Products</Link> |
             <Link to={`/${userId}/cart`}>
               <img src="https://image.flaticon.com/icons/svg/2/2772.svg" />
             </Link> |
-            <Link to={`/${userId}/checkout`}>Checkout</Link>
+            <Link to={`/${userId}/checkout`}>Checkout</Link> |
             <a href="#" onClick={handleClick}>
               Logout
             </a>
