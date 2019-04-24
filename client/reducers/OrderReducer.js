@@ -19,14 +19,14 @@ export const createOrderThunk = userId => {
   if (userId) {
     return async dispatch => {
       const req = await axios.put(`/api/users/${userId}/checkout`)
-      const order = req.data
-      dispatch(createOrderAction(order))
+      const orderObj = req.data
+      dispatch(createOrderAction(orderObj))
     }
   } else {
     return async dispatch => {
       const req = await axios.put('/api/checkout')
-      const order = req.data
-      dispatch(createOrderAction(order))
+      const orderObj = req.data
+      dispatch(createOrderAction(orderObj))
     }
   }
 }
@@ -35,7 +35,7 @@ export const createOrderThunk = userId => {
 const orderReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_ORDER:
-      return {...state, order: action.order}
+      return {...state, order: action.order.order}
     default:
       return state
   }

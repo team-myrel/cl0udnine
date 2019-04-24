@@ -6,7 +6,7 @@ class OrderComplete extends React.Component {
     return (
       <div id="container">
         <h1>Order Complete!</h1>
-        <h4>Order ID #: {this.props.order}</h4>
+        <h4>Order ID #: {this.props.order.id}</h4>
         <h4>Your order is on its way!</h4>
       </div>
     )
@@ -14,7 +14,7 @@ class OrderComplete extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  order: state.Order.order[0]
+  order: state.Order.order
 })
 
 export default connect(mapStateToProps)(OrderComplete)
