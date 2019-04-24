@@ -10,8 +10,9 @@ import Splash from './components/Splash'
 import Cart from './components/Cart'
 import Page404 from './components/Page404'
 import {getAllProducts} from './reducers/ProductsReducer'
+import OrderComplete from './components/OrderComplete'
+// import { Page404 } from './components/Page404'
 import UserHome from './components/UserHome'
-
 /**
  * COMPONENT
  */
@@ -33,6 +34,7 @@ class Routes extends Component {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/products/:id" component={SingleProduct} />
         <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/orderComplete" component={OrderComplete} />
 
         {isLoggedIn && (
           <Switch>
@@ -42,6 +44,7 @@ class Routes extends Component {
             <Route exact path="/products/:id" component={SingleProduct} />
             <Route exact path="/:userId/cart" component={Cart} />
             <Route exact path="/:userId/checkout" component={Checkout} />
+            <Route exact path="/orderComplete" component={OrderComplete} />
           </Switch>
         )}
         <Route component={Page404} />

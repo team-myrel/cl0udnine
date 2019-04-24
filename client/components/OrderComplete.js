@@ -1,10 +1,20 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-export const OrderComplete = props => {
-  return (
-    <div>
-      <h4>Order Complete!</h4>
-      <h6>Order ID #: {props.order.id}</h6>
-    </div>
-  )
+class OrderComplete extends React.Component {
+  render() {
+    return (
+      <div id="container">
+        <h1>Order Complete!</h1>
+        <h4>Order ID #: {this.props.order}</h4>
+        <h4>Your order is on its way!</h4>
+      </div>
+    )
+  }
 }
+
+const mapStateToProps = state => ({
+  order: state.Order.order[0]
+})
+
+export default connect(mapStateToProps)(OrderComplete)
