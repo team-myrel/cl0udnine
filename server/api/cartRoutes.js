@@ -8,7 +8,8 @@ router.get('/', async (req, res, next) => {
     const cart = await Cart.findAll({
       include: [{model: Product}],
       where: {
-        userId: null
+        userId: null,
+        orderId: null
       }
     })
 
@@ -25,7 +26,8 @@ router.put('/', async (req, res, next) => {
     let cartItem = await Cart.findOne({
       where: {
         productId: id,
-        userId: null
+        userId: null,
+        orderId: null
       }
     })
 

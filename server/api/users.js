@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Order, Product, Cart } = require('../db/models')
+const {User, Order, Product, Cart} = require('../db/models')
 const isAdmin = require('./isAdmin')
 module.exports = router
 
@@ -29,7 +29,7 @@ router.get('/:userId', async (req, res, next) => {
 router.get('/:userId/orders', async (req, res, next) => {
   try {
     let order = await Order.findOne({
-      include: [{ model: User, where: { id: req.params.userId } }]
+      include: [{model: User, where: {id: req.params.userId}}]
     })
     res.json(order)
   } catch (err) {
@@ -40,8 +40,8 @@ router.get('/:userId/orders', async (req, res, next) => {
 router.get('/:userId/cart', async (req, res, next) => {
   try {
     const cart = await Cart.findAll({
-      include: [{ model: Product }, { model: User }],
-      where: { userId: req.params.userId }
+      include: [{model: Product}, {model: User}],
+      where: {userId: req.params.userId, orderId: null}
     })
     res.json(cart)
   } catch (err) {
@@ -68,12 +68,19 @@ router.put('/:userId/checkout', async (req, res, next) => {
       userId: req.params.userId
     })
 
-    cart = await Cart.update(
-      {orderId: newOrder.id},
-      {where: {userId: req.params.userId, orderId: null}}
+    await cart.map(current =>
+      current.update(
+        {orderId: newOrder.id},
+        {where: {userId: req.params.userId, orderId: null}}
+      )
     )
 
-    res.send(cart)
+    const orderObj = {
+      order: newOrder,
+      cart
+    }
+
+    res.send(orderObj)
   } catch (err) {
     next(err)
   }
@@ -81,12 +88,13 @@ router.put('/:userId/checkout', async (req, res, next) => {
 
 router.put('/:userId/cart', async (req, res, next) => {
   try {
-    const { id, price, stock } = req.body
+    const {id, price, stock} = req.body
 
     let cartItem = await Cart.findOne({
       where: {
         productId: id,
-        userId: req.params.userId
+        userId: req.params.userId,
+        orderId: null
       }
     })
 

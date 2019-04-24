@@ -10,6 +10,7 @@ const GET_CART = 'GET_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
 const DELETE_ITEM = 'DELETE_ITEM'
 const CHANGE_QUANTITY = 'CHANGE_QUANTITY'
+// const CLEAR_CART = 'CLEAR_CART'
 
 // action creators
 const getCartAction = data => ({
@@ -32,6 +33,10 @@ const changeQuant = (id, data) => ({
   id,
   data
 })
+
+// const clearCart = () => ({
+//   type: CLEAR_CART
+// })
 
 // thunk
 export const getCartThunk = userId => {
@@ -93,6 +98,12 @@ export const changeQuantThunk = (itemId, change, userId) => {
     }
   }
 }
+
+// export const clearCartThunk = (userId) => {
+//   if (userId) {
+
+//   }
+// }
 
 // reducer
 const cartReducer = (state = initialState, action) => {
