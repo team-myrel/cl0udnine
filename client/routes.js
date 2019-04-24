@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { withRouter, Route, Switch } from 'react-router-dom'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Login, Signup, Checkout } from './components'
-import { me } from './reducers/UserReducer'
+import {Login, Signup, Checkout} from './components'
+import {me} from './reducers/UserReducer'
 import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
 import Splash from './components/Splash'
 import Cart from './components/Cart'
 import Page404 from './components/Page404'
-import { getAllProducts } from './reducers/ProductsReducer'
+import {getAllProducts} from './reducers/ProductsReducer'
 import OrderComplete from './components/OrderComplete'
 // import { Page404 } from './components/Page404'
 import UserHome from './components/UserHome'
-import AccessDenied from './components/AccessDenied';
+import AccessDenied from './components/AccessDenied'
 /**
  * COMPONENT
  */
@@ -24,7 +24,7 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props
+    const {isLoggedIn} = this.props
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
@@ -41,7 +41,6 @@ class Routes extends Component {
         <Route exact path="/api/users/:userId" component={AccessDenied} />
         <Route exact path="/api/users" component={AccessDenied} />
         <Route path="/api/users/*" component={AccessDenied} />
-        <Route path="*" component={Page404} />
 
         {isLoggedIn && (
           <Switch>
@@ -52,11 +51,6 @@ class Routes extends Component {
             <Route exact path="/:userId/cart" component={Cart} />
             <Route exact path="/:userId/checkout" component={Checkout} />
             <Route exact path="/orderComplete" component={OrderComplete} />
-            <Route exact path="/api" component={AccessDenied} />
-            <Route exact path="/api/orders" component={AccessDenied} />
-            <Route exact path="/api/users/:userId" component={AccessDenied} />
-            <Route exact path="/api/users" component={AccessDenied} />
-            <Route path="/api/users/*" component={AccessDenied} />
             <Route path="*" component={Page404} />
           </Switch>
         )}
