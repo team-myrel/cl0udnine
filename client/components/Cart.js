@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {
   getCartThunk,
   deleteItemThunk,
@@ -27,10 +27,10 @@ class Cart extends Component {
   }
 
   render() {
-    const { cart, user } = this.props
-    const cartSerialized = JSON.stringify(cart);
+    const {cart, user} = this.props
+    const cartSerialized = JSON.stringify(cart)
     const cartDeserialized = JSON.parse(localStorage.getItem('cart'))
-    localStorage.setItem('cart', cartSerialized);
+    localStorage.setItem('cart', cartSerialized)
 
     if (!cart.length)
       return (
@@ -43,7 +43,7 @@ class Cart extends Component {
 
     return (
       <div id="container">
-        <heading>Your Cart</heading>
+        <h1>Your Cart</h1>
         <br />
         <h5>You have ordered:</h5>
         <ul>
