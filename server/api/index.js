@@ -23,11 +23,11 @@ router.use('/isAdmin', require('./isAdmin'))
 //   }
 // })
 
-router.use('/', (req, res, next) => {
-  const err = new Error('Access denied, yo.')
-  err.status = 401
-  next(err)
-})
+// router.use('/', (req, res, next) => {
+//   const err = new Error('Access denied, yo.')
+//   err.status = 401
+//   next(err)
+// })
 
 router.get('/products', (req, res, next) => {
   const err = new Error('Access denied, yo.')

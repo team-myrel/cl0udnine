@@ -2,14 +2,15 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, UserHome, Signup, Checkout, Page404} from './components'
+import {Login, Signup, Checkout} from './components'
 import {me} from './reducers/UserReducer'
 import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
 import Splash from './components/Splash'
 import Cart from './components/Cart'
+import Page404 from './components/Page404'
 import {getAllProducts} from './reducers/ProductsReducer'
-// import { Page404 } from './components/Page404'
+import UserHome from './components/UserHome'
 
 /**
  * COMPONENT
@@ -40,10 +41,10 @@ class Routes extends Component {
             <Route exact path="/products" component={AllProducts} />
             <Route exact path="/products/:id" component={SingleProduct} />
             <Route exact path="/:userId/cart" component={Cart} />
+            <Route exact path="/:userId/checkout" component={Checkout} />
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
+        <Route component={Page404} />
       </Switch>
     )
   }
