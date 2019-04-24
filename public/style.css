@@ -370,6 +370,22 @@ small {
 }
 
 
+.sendBtn {
+  width: 50%;
+  /* content:"Add to cart!"; */
+  background: navy;
+    /* background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%); */
+  border: 2px solid rgb(131, 151, 196);
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 12px 0;
+    /* position: absolute;
+  visibility: hidden; */
+
+}
+
 
 .addBtn:hover {
   width: 50%;
